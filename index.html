@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arnav Sharma | Digital Architect</title>
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -22,7 +25,8 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            cursor: none; /* Custom cursor used */
+            cursor: none;
+            /* Custom cursor used */
         }
 
         body {
@@ -32,25 +36,30 @@
             overflow-x: hidden;
             scrollbar-width: none;
         }
+
         body::-webkit-scrollbar {
             display: none;
         }
 
-        h1, h2, h3, .cyber-text {
+        h1,
+        h2,
+        h3,
+        .cyber-text {
             font-family: 'Orbitron', sans-serif;
         }
 
         /* Scanline Overlay */
         .scanlines {
             position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            background: linear-gradient(
-                to bottom,
-                rgba(255, 255, 255, 0),
-                rgba(255, 255, 255, 0) 50%,
-                rgba(0, 0, 0, 0.1) 50%,
-                rgba(0, 0, 0, 0.1)
-            );
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(to bottom,
+                    rgba(255, 255, 255, 0),
+                    rgba(255, 255, 255, 0) 50%,
+                    rgba(0, 0, 0, 0.1) 50%,
+                    rgba(0, 0, 0, 0.1));
             background-size: 100% 4px;
             pointer-events: none;
             z-index: 9998;
@@ -64,7 +73,8 @@
             background: var(--cyan);
             border-radius: 50%;
             position: fixed;
-            top: 0; left: 0;
+            top: 0;
+            left: 0;
             pointer-events: none;
             z-index: 10000;
             transform: translate(-50%, -50%);
@@ -74,8 +84,10 @@
 
         #cursor-tail {
             position: fixed;
-            top: 0; left: 0;
-            width: 100vw; height: 100vh;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
             pointer-events: none;
             z-index: 9999;
         }
@@ -83,7 +95,8 @@
         /* Navigation */
         nav {
             position: fixed;
-            top: 0; width: 100%;
+            top: 0;
+            width: 100%;
             padding: 1.5rem 5%;
             display: flex;
             justify-content: space-between;
@@ -125,8 +138,10 @@
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: 0; left: 0;
-            width: 0; height: 2px;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
             background: var(--cyan);
             transition: width 0.3s ease;
             box-shadow: 0 0 10px var(--cyan);
@@ -153,8 +168,10 @@
 
         #hero-canvas {
             position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             z-index: 0;
         }
 
@@ -178,7 +195,7 @@
             flex-wrap: wrap;
             justify-content: center;
         }
-        
+
         .hero-title .char {
             display: inline-block;
             color: #fff;
@@ -216,7 +233,10 @@
         .cyber-btn::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             background: var(--cyan);
             z-index: -1;
             transform: scaleX(0);
@@ -274,11 +294,14 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .circuit-bg {
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-image: 
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
                 linear-gradient(rgba(0, 245, 255, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(0, 245, 255, 0.03) 1px, transparent 1px);
             background-size: 40px 40px;
@@ -288,8 +311,13 @@
         }
 
         @keyframes gridMove {
-            0% { background-position: 0 0; }
-            100% { background-position: 0 40px; }
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: 0 40px;
+            }
         }
 
         .about-content {
@@ -322,11 +350,14 @@
             box-shadow: inset 0 0 30px var(--violet);
             animation: float 4s ease-in-out infinite;
         }
-        
+
         .hex-avatar::before {
             content: '';
             position: absolute;
-            top: 2px; left: 2px; right: 2px; bottom: 2px;
+            top: 2px;
+            left: 2px;
+            right: 2px;
+            bottom: 2px;
             background: var(--bg-color);
             clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
             z-index: 1;
@@ -386,14 +417,20 @@
 
         .skill-hex {
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background: var(--cyan);
             clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
         }
 
         .skill-hex-inner {
             position: absolute;
-            top: 2px; left: 2px; right: 2px; bottom: 2px;
+            top: 2px;
+            left: 2px;
+            right: 2px;
+            bottom: 2px;
             background: #0a0a15;
             clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
             display: flex;
@@ -429,7 +466,7 @@
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 3rem;
             max-width: 1200px;
             margin: 0 auto;
@@ -449,7 +486,7 @@
             overflow: hidden;
             transform-style: preserve-3d;
             transition: transform 0.1s ease, box-shadow 0.4s ease;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
         .tilt-card:hover {
@@ -459,8 +496,10 @@
 
         .card-bg {
             position: absolute;
-            top: -5%; left: -5%;
-            width: 110%; height: 110%;
+            top: -5%;
+            left: -5%;
+            width: 110%;
+            height: 110%;
             background-size: cover;
             background-position: center;
             transition: 0.5s;
@@ -474,7 +513,9 @@
 
         .card-content {
             position: absolute;
-            bottom: 0; left: 0; width: 100%;
+            bottom: 0;
+            left: 0;
+            width: 100%;
             padding: 2rem;
             transform: translateZ(50px) translateY(100px);
             opacity: 0;
@@ -483,7 +524,7 @@
             flex-direction: column;
             justify-content: flex-end;
             height: 100%;
-            background: linear-gradient(to top, rgba(5,5,16,1) 0%, rgba(5,5,16,0) 100%);
+            background: linear-gradient(to top, rgba(5, 5, 16, 1) 0%, rgba(5, 5, 16, 0) 100%);
         }
 
         .tilt-card:hover .card-content {
@@ -523,6 +564,103 @@
             box-shadow: 0 0 15px var(--cyan);
         }
 
+        /* Dynamic Card Badges & Animations */
+        .card-badges {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: auto;
+            padding-bottom: 1rem;
+        }
+
+        .tech-badge {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid transparent;
+        }
+
+        .tech-next-react {
+            color: #00f5ff;
+            background: rgba(0, 245, 255, 0.1);
+            border-color: rgba(0, 245, 255, 0.3);
+            text-shadow: 0 0 5px rgba(0, 245, 255, 0.5);
+        }
+
+        .tech-wordpress {
+            color: #00a2ff;
+            background: rgba(0, 162, 255, 0.1);
+            border-color: rgba(0, 162, 255, 0.3);
+            text-shadow: 0 0 5px rgba(0, 162, 255, 0.5);
+        }
+
+        .tech-shopify {
+            color: #22c55e;
+            background: rgba(34, 197, 94, 0.1);
+            border-color: rgba(34, 197, 94, 0.3);
+            text-shadow: 0 0 5px rgba(34, 197, 94, 0.5);
+        }
+
+        .status-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #ffffff;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .status-dot.done {
+            background-color: #22c55e;
+            box-shadow: 0 0 8px #22c55e;
+        }
+
+        .status-dot.working {
+            background-color: #f59e0b;
+            box-shadow: 0 0 8px #f59e0b;
+            animation: statusPulse 1.5s infinite alternate;
+        }
+
+        @keyframes statusPulse {
+            0% {
+                transform: scale(0.9);
+                box-shadow: 0 0 2px #f59e0b;
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1.1);
+                box-shadow: 0 0 10px #f59e0b;
+                opacity: 1;
+            }
+        }
+
+        .view-all-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 4rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hidden-card {
+            display: none;
+        }
+
         /* Contact Section */
         #contact {
             background: #050510;
@@ -535,7 +673,10 @@
 
         .contact-particles {
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             z-index: 0;
             pointer-events: none;
         }
@@ -617,7 +758,7 @@
 
         .social-icon {
             font-size: 2.5rem;
-            color: rgba(255,255,255,0.5);
+            color: rgba(255, 255, 255, 0.5);
             transition: 0.4s;
             text-decoration: none;
             display: inline-block;
@@ -628,11 +769,13 @@
             text-shadow: 0 0 20px #ff3366;
             transform: translateY(-10px);
         }
+
         .social-icon.linkedin:hover {
             color: #0077b5;
             text-shadow: 0 0 20px #0077b5;
             transform: translateY(-10px);
         }
+
         .social-icon.github:hover {
             color: #ffffff;
             text-shadow: 0 0 20px #ffffff;
@@ -696,6 +839,7 @@
             box-shadow: 0 0 20px #25D366;
             border-color: #25D366;
         }
+
         .cta-btn-whatsapp:hover .cta-label {
             opacity: 1;
             right: 65px;
@@ -708,6 +852,7 @@
             box-shadow: 0 0 20px #0077B5;
             border-color: #0077B5;
         }
+
         .cta-btn-linkedin:hover .cta-label {
             opacity: 1;
             right: 65px;
@@ -721,6 +866,7 @@
             border-color: #00f5ff;
             color: #050510;
         }
+
         .cta-btn-mail:hover .cta-label {
             opacity: 1;
             right: 65px;
@@ -733,7 +879,8 @@
         /* Section Transition Line */
         .section-transition {
             position: absolute;
-            bottom: 0; left: 0;
+            bottom: 0;
+            left: 0;
             width: 100%;
             height: 2px;
             background: var(--cyan);
@@ -745,8 +892,15 @@
 
         /* Animations */
         @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
         }
 
         .hamburger {
@@ -756,7 +910,11 @@
             cursor: pointer;
             transition: 0.3s;
         }
-        .hamburger:hover { color: var(--cyan); text-shadow: 0 0 10px var(--cyan); }
+
+        .hamburger:hover {
+            color: var(--cyan);
+            text-shadow: 0 0 10px var(--cyan);
+        }
 
         /* Responsive */
         @media (max-width: 992px) {
@@ -764,15 +922,35 @@
                 flex-direction: column;
                 text-align: center;
             }
-            .hero-title { font-size: 8vw; }
-            .hero-subtitle { font-size: 4vw; height: 5vw; }
+
+            .hero-title {
+                font-size: 8vw;
+            }
+
+            .hero-subtitle {
+                font-size: 4vw;
+                height: 5vw;
+            }
+
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 768px) {
-            * { cursor: auto !important; }
-            #cursor, #cursor-tail { display: none !important; }
+            * {
+                cursor: auto !important;
+            }
 
-            .hamburger { display: block; }
+            #cursor,
+            #cursor-tail {
+                display: none !important;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
             .nav-links {
                 display: none;
                 position: absolute;
@@ -787,14 +965,30 @@
                 text-align: center;
                 border-bottom: 1px solid var(--glass-border);
             }
-            .nav-links.active { display: flex; }
 
-            .hero-title { font-size: 2.5rem; }
-            .hero-subtitle { font-size: 1.2rem; height: auto; margin-bottom: 2rem; }
-            
-            section { padding: 5rem 5% 3rem; }
-            .section-title { font-size: 2.5rem; margin-bottom: 2.5rem; }
-            
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+                height: auto;
+                margin-bottom: 2rem;
+            }
+
+            section {
+                padding: 5rem 5% 3rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+                margin-bottom: 2.5rem;
+            }
+
             .hex-grid {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
@@ -804,12 +998,23 @@
                 transform-origin: top center;
                 margin-bottom: -50px;
             }
-            
-            .projects-grid { grid-template-columns: 1fr; }
-            
-            .contact-wrapper { padding: 2rem 1.5rem; width: 100%; }
-            .about-left { height: 300px; }
-            .hex-avatar { transform: scale(0.8); }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-wrapper {
+                padding: 2rem 1.5rem;
+                width: 100%;
+            }
+
+            .about-left {
+                height: 300px;
+            }
+
+            .hex-avatar {
+                transform: scale(0.8);
+            }
 
             .floating-cta {
                 top: auto;
@@ -823,6 +1028,7 @@
                 border: 1px solid var(--glass-border);
                 backdrop-filter: blur(10px);
             }
+
             .floating-cta a {
                 border: none;
                 background: transparent;
@@ -830,13 +1036,21 @@
                 width: 40px;
                 height: 40px;
             }
-            .floating-cta a:hover { left: 0; transform: translateY(-5px) !important; }
-            .cta-label { display: none; }
+
+            .floating-cta a:hover {
+                left: 0;
+                transform: translateY(-5px) !important;
+            }
+
+            .cta-label {
+                display: none;
+            }
         }
     </style>
 </head>
+
 <body>
-    
+
     <div class="scanlines"></div>
 
     <div id="cursor"></div>
@@ -872,7 +1086,8 @@
                 </div>
             </div>
             <div class="about-right" data-speed="1.2">
-                <h2 class="section-title" style="text-align: left; left: 0; transform: none; margin-bottom: 2rem;">System Identity</h2>
+                <h2 class="section-title" style="text-align: left; left: 0; transform: none; margin-bottom: 2rem;">
+                    System Identity</h2>
                 <div class="typing-bio"></div>
             </div>
         </div>
@@ -889,39 +1104,11 @@
 
     <section id="projects">
         <h2 class="section-title">Active Deployments</h2>
-        <div class="projects-grid">
-            <div class="tilt-card-wrapper">
-                <div class="tilt-card">
-                    <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80')"></div>
-                    <div class="card-content">
-                        <h3 class="card-title">AI Web Design</h3>
-                        <p class="card-desc">Interactive 3D landing page showcasing artificial intelligence capabilities in modern web development.</p>
-                        <a href="https://arnav-sharma437.github.io/ai-3d-website/" target="_blank" class="card-btn">Init Sequence</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="tilt-card-wrapper">
-                <div class="tilt-card">
-                    <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80')"></div>
-                    <div class="card-content">
-                        <h3 class="card-title">CMS Enterprise Hub</h3>
-                        <p class="card-desc">A highly scalable content management system architecture designed for global distribution and low latency.</p>
-                        <a href="#" class="card-btn">Classified</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tilt-card-wrapper">
-                <div class="tilt-card">
-                    <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80')"></div>
-                    <div class="card-content">
-                        <h3 class="card-title">Growth Analytics Matrix</h3>
-                        <p class="card-desc">Business development tracking dashboard utilizing real-time big data to strategize market expansion.</p>
-                        <a href="#" class="card-btn">Classified</a>
-                    </div>
-                </div>
-            </div>
+        <div class="projects-grid" id="projects-grid">
+            <!-- Dynamic project cards will be injected here via JS -->
+        </div>
+        <div class="view-all-container">
+            <button id="view-all-btn" class="cyber-btn">View All Projects</button>
         </div>
     </section>
 
@@ -932,22 +1119,28 @@
             <form class="contact-form" id="contact-form" action="https://formspree.io/f/xrerwowr" method="POST">
                 <input type="hidden" name="_subject" value="New message from Arnav's Portfolio!">
                 <div class="input-group">
-                    <input type="text" name="name" class="contact-input" placeholder="Entity Designation (Name)" required>
+                    <input type="text" name="name" class="contact-input" placeholder="Entity Designation (Name)"
+                        required>
                 </div>
                 <div class="input-group">
                     <input type="email" name="email" class="contact-input" placeholder="Return Vector (Email)" required>
                 </div>
                 <div class="input-group">
-                    <textarea name="message" class="contact-input" placeholder="Transmission Payload (Message)" required></textarea>
+                    <textarea name="message" class="contact-input" placeholder="Transmission Payload (Message)"
+                        required></textarea>
                 </div>
                 <button type="submit" class="submit-btn">Transmit Signal</button>
-                <p id="form-status" style="display: none; color: var(--cyan); text-shadow: 0 0 10px var(--cyan); text-align: center; font-family: 'Orbitron', sans-serif; font-size: 1.1rem; margin-top: 1rem;"></p>
+                <p id="form-status"
+                    style="display: none; color: var(--cyan); text-shadow: 0 0 10px var(--cyan); text-align: center; font-family: 'Orbitron', sans-serif; font-size: 1.1rem; margin-top: 1rem;">
+                </p>
             </form>
-            
+
             <div class="social-container">
                 <a href="mailto:aarnavsharma437@gmail.com" class="social-icon email"><i class="fas fa-envelope"></i></a>
-                <a href="https://www.linkedin.com/in/arnav-sharma-9254922a9" target="_blank" class="social-icon linkedin"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/arnav-sharma437" target="_blank" class="social-icon github"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/arnav-sharma-9254922a9/" target="_blank"
+                    class="social-icon linkedin"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/arnav-sharma437" target="_blank" class="social-icon github"><i
+                        class="fab fa-github"></i></a>
             </div>
         </div>
     </section>
@@ -976,6 +1169,160 @@
     <script>
         // Register GSAP Plugin
         gsap.registerPlugin(ScrollTrigger);
+
+        // --- Dynamic Project Grid Implementation ---
+        const projectsData = [
+            { name: "GoGadget", url: "https://gogadget.co.in", tech: "Shopify", status: "Done", image: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&q=80" },
+            { name: "Katoch Organic Farm", url: "https://katochorganicfarm.com/", tech: "Next/React", status: "Done", image: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&q=80" },
+            { name: "Sadhna", url: "https://sadhna.space/", tech: "WordPress", status: "Done", image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80" },
+            { name: "MeraRoom", url: "https://www.meraroom.in/", tech: "Next/React", status: "Working", image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&q=80" },
+            { name: "Dolphan Delph", url: "https://dolphandelph.com/", tech: "WordPress", status: "Working", image: "https://images.unsplash.com/photo-1570481662006-a3a13746fe4e?auto=format&fit=crop&q=80" },
+            { name: "AEC Website", url: "https://aec-website-nu.vercel.app/", tech: "Next/React", status: "Working", image: "https://images.unsplash.com/photo-1503387762-592ded58c45a?auto=format&fit=crop&q=80" },
+            { name: "Hakimi Industrial Solutions", url: "https://hakimiindustrialsols.com/", tech: "WordPress", status: "Working", image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80" },
+            { name: "V Raj Agro", url: "https://v-raj-agro.vercel.app/", tech: "Next/React", status: "Working", image: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&q=80" },
+            { name: "Alpesh Yoga (We Are One Tech Nation)", url: "https://www.weareonetechnation.com/alpeshyoga/", tech: "WordPress", status: "Working", image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80" },
+            { name: "Cashmax India", url: "https://cashmaxindia-vx9b.vercel.app/", tech: "Next/React", status: "Working", image: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&q=80" }
+        ];
+
+        function getTechDescription(tech) {
+            switch(tech) {
+                case "Shopify": return "E-commerce storefront";
+                case "Next/React": return "Custom web application";
+                case "WordPress": return "Content-driven business website";
+                default: return "Web development project";
+            }
+        }
+
+        function getTechClass(tech) {
+            switch(tech) {
+                case "Next/React": return "tech-next-react";
+                case "WordPress": return "tech-wordpress";
+                case "Shopify": return "tech-shopify";
+                default: return "";
+            }
+        }
+
+        const projectsGrid = document.getElementById('projects-grid');
+        const viewAllBtn = document.getElementById('view-all-btn');
+        let showAll = false;
+
+        function renderProjects() {
+            if (!projectsGrid) return;
+            projectsGrid.innerHTML = '';
+
+            projectsData.forEach((project, idx) => {
+                const isHidden = idx >= 6;
+                const wrapper = document.createElement('div');
+                wrapper.className = `tilt-card-wrapper${isHidden ? ' hidden-card' : ''}`;
+                
+                const derivedDescription = getTechDescription(project.tech);
+                const techClass = getTechClass(project.tech);
+                const statusDotClass = project.status === 'Done' ? 'done' : 'working';
+                const statusText = project.status === 'Done' ? 'LIVE' : 'IN PROGRESS';
+
+                wrapper.innerHTML = `
+                    <div class="tilt-card">
+                        <div class="card-bg" style="background-image: url('${project.image}')"></div>
+                        <div class="card-content">
+                            <div class="card-badges">
+                                <span class="tech-badge ${techClass}">${project.tech}</span>
+                                <span class="status-badge">
+                                    <span class="status-dot ${statusDotClass}"></span>
+                                    ${statusText}
+                                </span>
+                            </div>
+                            <h3 class="card-title">${project.name}</h3>
+                            <p class="card-desc">${derivedDescription}</p>
+                            <a href="${project.url}" target="_blank" rel="noopener noreferrer" class="card-btn">Visit Site</a>
+                        </div>
+                    </div>
+                `;
+
+                projectsGrid.appendChild(wrapper);
+            });
+        }
+
+        // Render projects immediately on script load
+        renderProjects();
+
+        // Handle Expand/Collapse Toggle
+        if (viewAllBtn) {
+            viewAllBtn.addEventListener('click', () => {
+                showAll = !showAll;
+                const hiddenCards = document.querySelectorAll('.projects-grid .hidden-card');
+
+                if (showAll) {
+                    viewAllBtn.textContent = 'Show Less';
+                    // Animate in using GSAP
+                    gsap.fromTo(hiddenCards, 
+                        { display: 'block', opacity: 0, y: 50 }, 
+                        { 
+                            opacity: 1, 
+                            y: 0, 
+                            duration: 0.6, 
+                            stagger: 0.15, 
+                            ease: "power2.out",
+                            onComplete: () => {
+                                // Re-initialize 3D tilt for the new cards since they are now visible
+                                if (typeof THREE !== 'undefined' && !isMobile) {
+                                    initializeTiltForCards(hiddenCards);
+                                }
+                            }
+                        }
+                    );
+                } else {
+                    viewAllBtn.textContent = 'View All Projects';
+                    // Animate out using GSAP
+                    gsap.to(hiddenCards, {
+                        opacity: 0,
+                        y: 50,
+                        duration: 0.4,
+                        stagger: 0.05,
+                        ease: "power2.in",
+                        onComplete: () => {
+                            hiddenCards.forEach(c => c.style.display = 'none');
+                            // Smoothly scroll back to the projects section start
+                            lenis.scrollTo('#projects', { offset: -50, duration: 1 });
+                        }
+                    });
+                }
+            });
+        }
+
+        // Helper function to bind 3D tilt effect to specified cards
+        function initializeTiltForCards(cards) {
+            cards.forEach(cardWrapper => {
+                const card = cardWrapper.querySelector('.tilt-card');
+                if (!card) return;
+                
+                // Remove existing listeners if any
+                card.removeEventListener('mousemove', handleCardTilt);
+                card.removeEventListener('mouseleave', resetCardTilt);
+
+                // Add new listeners
+                card.addEventListener('mousemove', handleCardTilt);
+                card.addEventListener('mouseleave', resetCardTilt);
+            });
+        }
+
+        function handleCardTilt(e) {
+            const card = e.currentTarget;
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            const rotateX = ((y - centerY) / centerY) * -15;
+            const rotateY = ((x - centerX) / centerX) * 15;
+
+            card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        }
+
+        function resetCardTilt(e) {
+            e.currentTarget.style.transform = `rotateX(0) rotateY(0)`;
+        }
 
         // --- Smooth Scroll (Lenis) ---
         const lenis = new Lenis({
@@ -1010,15 +1357,15 @@
         // --- Formspree AJAX Submit ---
         const contactForm = document.getElementById('contact-form');
         const formStatus = document.getElementById('form-status');
-        
+
         if (contactForm) {
-            contactForm.addEventListener('submit', async function(event) {
+            contactForm.addEventListener('submit', async function (event) {
                 event.preventDefault();
                 const data = new FormData(contactForm);
                 const submitBtn = contactForm.querySelector('.submit-btn');
                 const originalText = submitBtn.textContent;
                 submitBtn.textContent = 'Transmitting...';
-                
+
                 try {
                     const response = await fetch(contactForm.action, {
                         method: contactForm.method,
@@ -1027,7 +1374,7 @@
                             'Accept': 'application/json'
                         }
                     });
-                    
+
                     if (response.ok) {
                         formStatus.textContent = "Message sent successfully! I'll get back to you soon.";
                         formStatus.style.display = 'block';
@@ -1044,12 +1391,12 @@
                     formStatus.style.textShadow = "0 0 10px #ff3366";
                     formStatus.style.display = 'block';
                 }
-                
+
                 submitBtn.textContent = originalText;
-                setTimeout(() => { 
-                    formStatus.style.display = 'none'; 
-                    formStatus.style.color = "var(--cyan)"; 
-                    formStatus.style.textShadow = "0 0 10px var(--cyan)"; 
+                setTimeout(() => {
+                    formStatus.style.display = 'none';
+                    formStatus.style.color = "var(--cyan)";
+                    formStatus.style.textShadow = "0 0 10px var(--cyan)";
                 }, 5000);
             });
         }
@@ -1059,11 +1406,11 @@
             const cursor = document.getElementById('cursor');
             const canvasTail = document.getElementById('cursor-tail');
             const ctxTail = canvasTail.getContext('2d');
-            
+
             canvasTail.width = window.innerWidth;
             canvasTail.height = window.innerHeight;
 
-            let mouse = { x: window.innerWidth/2, y: window.innerHeight/2 };
+            let mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
             let particles = [];
 
             window.addEventListener('resize', () => {
@@ -1074,7 +1421,7 @@
             document.addEventListener('mousemove', (e) => {
                 mouse.x = e.clientX;
                 mouse.y = e.clientY;
-                
+
                 // Move main cursor
                 gsap.to(cursor, { x: mouse.x, y: mouse.y, duration: 0.1 });
 
@@ -1087,25 +1434,27 @@
                 });
             });
 
-            // Hover effects on cursor
-            document.querySelectorAll('a, button, input, textarea').forEach(el => {
-                el.addEventListener('mouseenter', () => {
+            // Hover effects on cursor (using event delegation for dynamic elements support)
+            document.addEventListener('mouseover', (e) => {
+                if (e.target.closest('a, button, input, textarea, .tilt-card')) {
                     cursor.style.width = '20px';
                     cursor.style.height = '20px';
                     cursor.style.backgroundColor = 'transparent';
                     cursor.style.border = '2px solid var(--cyan)';
-                });
-                el.addEventListener('mouseleave', () => {
+                }
+            });
+            document.addEventListener('mouseout', (e) => {
+                if (e.target.closest('a, button, input, textarea, .tilt-card')) {
                     cursor.style.width = '8px';
                     cursor.style.height = '8px';
                     cursor.style.backgroundColor = 'var(--cyan)';
                     cursor.style.border = 'none';
-                });
+                }
             });
 
             function animateTail() {
                 ctxTail.clearRect(0, 0, canvasTail.width, canvasTail.height);
-                
+
                 for (let i = 0; i < particles.length; i++) {
                     let p = particles[i];
                     ctxTail.globalAlpha = p.alpha;
@@ -1113,10 +1462,10 @@
                     ctxTail.beginPath();
                     ctxTail.arc(p.x, p.y, p.size, 0, Math.PI * 2);
                     ctxTail.fill();
-                    
+
                     p.alpha -= 0.02; // fade out
                     p.size -= 0.05; // shrink
-                    
+
                     if (p.alpha <= 0 || p.size <= 0) {
                         particles.splice(i, 1);
                         i--;
@@ -1131,7 +1480,7 @@
         const titleEl = document.querySelector('.hero-title');
         const text = titleEl.innerText;
         titleEl.innerHTML = '';
-        
+
         // Split text manually
         text.split('').forEach(char => {
             const span = document.createElement('span');
@@ -1150,7 +1499,7 @@
         });
 
         const chars = document.querySelectorAll('.hero-title .char');
-        
+
         const tlIntro = gsap.timeline();
         tlIntro.to(chars, {
             duration: 1.5,
@@ -1160,7 +1509,7 @@
             stagger: 0.05,
             ease: "power4.out",
             delay: 0.2
-        }).fromTo('.cyber-btn', {opacity: 0, y: 30}, {opacity: 1, y: 0, duration: 1}, "-=1");
+        }).fromTo('.cyber-btn', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1 }, "-=1");
 
         gsap.to('.floating-cta a', {
             x: 0,
@@ -1180,7 +1529,7 @@
 
         function typeRole() {
             const currentRole = roles[roleIdx];
-            
+
             if (isDeleting) {
                 typewriterEl.textContent = currentRole.substring(0, charIdx - 1) + "_";
                 charIdx--;
@@ -1214,7 +1563,7 @@
             { name: "SEO", icon: "fa-solid fa-magnifying-glass" },
             { name: "Strategy", icon: "fa-solid fa-chess-knight" }
         ];
-        
+
         const hexGrid = document.querySelector('.hex-grid');
         skillsData.forEach(skill => {
             const wrapper = document.createElement('div');
@@ -1230,11 +1579,11 @@
         });
 
         // --- GSAP Scroll Animations ---
-        
+
         // Section transitions (light sweep)
         document.querySelectorAll('section').forEach(sec => {
             const line = sec.querySelector('.section-transition');
-            if(line) {
+            if (line) {
                 gsap.to(line, {
                     scaleX: 1,
                     scrollTrigger: {
@@ -1256,7 +1605,7 @@
             trigger: "#about",
             start: "top 50%",
             onEnter: () => {
-                if(!bioTyped) {
+                if (!bioTyped) {
                     bioTyped = true;
                     let i = 0;
                     function typeBio() {
@@ -1283,8 +1632,8 @@
             }
         });
 
-        // Projects - Stagger cards
-        gsap.from('.tilt-card-wrapper', {
+        // Projects - Stagger cards (only visible ones initially)
+        gsap.from('.tilt-card-wrapper:not(.hidden-card)', {
             y: 100,
             opacity: 0,
             stagger: 0.2,
@@ -1322,25 +1671,7 @@
 
         // --- 3D Tilt Cards ---
         if (!isMobile) {
-            document.querySelectorAll('.tilt-card').forEach(card => {
-                card.addEventListener('mousemove', e => {
-                    const rect = card.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    
-                    const centerX = rect.width / 2;
-                    const centerY = rect.height / 2;
-                    
-                    const rotateX = ((y - centerY) / centerY) * -15; 
-                    const rotateY = ((x - centerX) / centerX) * 15;
-                    
-                    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-                });
-                
-                card.addEventListener('mouseleave', () => {
-                    card.style.transform = `rotateX(0) rotateY(0)`;
-                });
-            });
+            initializeTiltForCards(document.querySelectorAll('.tilt-card-wrapper'));
         }
 
         // --- Three.js Implementations ---
@@ -1351,14 +1682,14 @@
             const scene = new THREE.Scene();
             const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
             const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-            
+
             renderer.setSize(window.innerWidth, window.innerHeight);
             renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
             // Wireframe Globe
             const globeGeo = new THREE.IcosahedronGeometry(10, 2);
-            const globeMat = new THREE.MeshBasicMaterial({ 
-                color: 0x00f5ff, 
+            const globeMat = new THREE.MeshBasicMaterial({
+                color: 0x00f5ff,
                 wireframe: true,
                 transparent: true,
                 opacity: 0.15
@@ -1371,12 +1702,12 @@
             const particlesCount = 500;
             const posArray = new Float32Array(particlesCount * 3);
 
-            for(let i = 0; i < particlesCount * 3; i++) {
+            for (let i = 0; i < particlesCount * 3; i++) {
                 posArray[i] = (Math.random() - 0.5) * 50;
             }
 
             particlesGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-            
+
             // Cyan and Violet particles
             const particleMat = new THREE.PointsMaterial({
                 size: 0.05,
@@ -1385,7 +1716,7 @@
                 opacity: 0.8,
                 blending: THREE.AdditiveBlending
             });
-            
+
             const particles = new THREE.Points(particlesGeo, particleMat);
             scene.add(particles);
 
@@ -1403,12 +1734,12 @@
 
             const tick = () => {
                 const elapsedTime = clock.getElapsedTime();
-                
+
                 globe.rotation.y = elapsedTime * 0.1;
                 globe.rotation.x = elapsedTime * 0.05;
 
                 particles.rotation.y = elapsedTime * 0.05;
-                
+
                 // Parallax based on mouse
                 camera.position.x += (mouseX * 5 - camera.position.x) * 0.05;
                 camera.position.y += (-mouseY * 5 - camera.position.y) * 0.05;
@@ -1433,16 +1764,16 @@
             // Match aspect ratio of the hex container approx
             const camera = new THREE.PerspectiveCamera(75, 300 / 346, 0.1, 100);
             const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-            
+
             renderer.setSize(300, 346);
-            
+
             const geometry = new THREE.BoxGeometry(2, 2, 2);
-            
+
             // Edges geometry for glowing lines
             const edges = new THREE.EdgesGeometry(geometry);
             const material = new THREE.LineBasicMaterial({ color: 0x9d00ff, linewidth: 2 });
             const cube = new THREE.LineSegments(edges, material);
-            
+
             // Add some inner faces with transparency
             const faceMat = new THREE.MeshBasicMaterial({
                 color: 0x00f5ff,
@@ -1451,7 +1782,7 @@
                 side: THREE.DoubleSide
             });
             const meshCube = new THREE.Mesh(geometry, faceMat);
-            
+
             const group = new THREE.Group();
             group.add(cube);
             group.add(meshCube);
@@ -1469,11 +1800,12 @@
         };
 
         // Initialize 3D
-        if(typeof THREE !== 'undefined' && !isMobile) {
+        if (typeof THREE !== 'undefined' && !isMobile) {
             initHero3D();
             initAboutCube();
         }
 
     </script>
 </body>
+
 </html>
