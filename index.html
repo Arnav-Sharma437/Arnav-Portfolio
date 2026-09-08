@@ -17,10 +17,10 @@
             --purple-glow: rgba(157, 0, 255, 0.4);
             --cyan-glow: rgba(0, 245, 255, 0.4);
             --text-main: #ffffff;
-            --text-muted: #a1a1b5;
-            --glass-bg: rgba(10, 10, 24, 0.7);
-            --glass-border: rgba(0, 245, 255, 0.18);
-            --card-bg: rgba(255, 255, 255, 0.03);
+            --text-muted: #b0b0c8;
+            --glass-bg: rgba(12, 12, 28, 0.8);
+            --glass-border: rgba(0, 245, 255, 0.22);
+            --card-bg: rgba(14, 14, 32, 0.75);
         }
 
         * {
@@ -58,7 +58,7 @@
             background-size: 100% 4px;
             pointer-events: none;
             z-index: 9998;
-            opacity: 0.3;
+            opacity: 0.25;
         }
 
         /* Custom Cursor */
@@ -88,14 +88,14 @@
         nav {
             position: fixed;
             top: 0; width: 100%;
-            padding: 1.2rem 5%;
+            padding: 1.1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 9000;
-            background: var(--glass-bg);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            background: rgba(8, 8, 20, 0.88);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
             border-bottom: 1px solid var(--glass-border);
         }
 
@@ -155,15 +155,15 @@
             padding: 0.55rem 1.4rem !important;
             border: 1px solid var(--cyan);
             border-radius: 30px;
-            background: rgba(0, 245, 255, 0.08);
+            background: rgba(0, 245, 255, 0.1);
             color: #fff !important;
-            box-shadow: 0 0 15px rgba(0, 245, 255, 0.2);
+            box-shadow: 0 0 15px rgba(0, 245, 255, 0.25);
         }
         .nav-cta::after { display: none !important; }
         .nav-cta:hover {
             background: var(--cyan) !important;
             color: #050510 !important;
-            box-shadow: 0 0 20px var(--cyan) !important;
+            box-shadow: 0 0 25px var(--cyan) !important;
         }
 
         .hamburger {
@@ -209,15 +209,15 @@
             gap: 10px;
             padding: 8px 22px;
             border-radius: 30px;
-            background: rgba(37, 211, 102, 0.08);
-            border: 1px solid rgba(37, 211, 102, 0.35);
+            background: rgba(37, 211, 102, 0.1);
+            border: 1px solid rgba(37, 211, 102, 0.4);
             font-size: 0.9rem;
             letter-spacing: 1.5px;
             text-transform: uppercase;
             color: #25D366;
             margin-bottom: 1.6rem;
             font-family: 'Orbitron', sans-serif;
-            box-shadow: 0 0 15px rgba(37, 211, 102, 0.2);
+            box-shadow: 0 0 15px rgba(37, 211, 102, 0.25);
         }
         .status-dot {
             width: 8px; height: 8px;
@@ -253,7 +253,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 2.8rem;
+            min-height: 2.8rem;
             margin-bottom: 1.4rem;
         }
 
@@ -332,8 +332,8 @@
             font-weight: 600;
             font-family: 'Orbitron', sans-serif;
             color: #fff;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             text-decoration: none;
             text-transform: uppercase;
             letter-spacing: 1.5px;
@@ -344,15 +344,16 @@
         .glass-btn:hover {
             border-color: var(--violet);
             box-shadow: 0 0 20px rgba(157, 0, 255, 0.4);
-            background: rgba(157, 0, 255, 0.12);
+            background: rgba(157, 0, 255, 0.15);
         }
 
         /* --- SECTIONS GENERAL --- */
         section {
             min-height: 100vh;
-            padding: 7.5rem 5% 4rem;
+            padding: 8.5rem 5% 5rem;
             position: relative;
             z-index: 1;
+            scroll-margin-top: 80px;
         }
 
         .section-header {
@@ -385,8 +386,9 @@
             color: var(--text-muted);
             font-size: 1.1rem;
             max-width: 650px;
-            margin: 1rem auto 0;
+            margin: 1.2rem auto 0;
             font-weight: 400;
+            line-height: 1.6;
         }
 
         .section-title::after {
@@ -449,7 +451,7 @@
             width: 290px;
             height: 335px;
             position: relative;
-            background: rgba(157, 0, 255, 0.12);
+            background: rgba(157, 0, 255, 0.15);
             clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
             display: flex;
             justify-content: center;
@@ -481,7 +483,7 @@
         .about-bio {
             font-size: 1.15rem;
             line-height: 1.8;
-            color: #d1d1e0;
+            color: #d8d8e8;
             margin-bottom: 2.2rem;
             border-left: 3px solid var(--cyan);
             padding-left: 1.5rem;
@@ -495,18 +497,19 @@
         }
 
         .stat-card {
-            background: var(--card-bg);
+            background: rgba(14, 14, 32, 0.85);
             border: 1px solid var(--glass-border);
             padding: 1.4rem 1rem;
-            border-radius: 10px;
+            border-radius: 12px;
             text-align: center;
             backdrop-filter: blur(12px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
             transition: 0.3s ease;
         }
         .stat-card:hover {
             border-color: var(--cyan);
             transform: translateY(-4px);
-            box-shadow: 0 10px 25px rgba(0, 245, 255, 0.15);
+            box-shadow: 0 12px 30px rgba(0, 245, 255, 0.2);
         }
 
         .stat-num {
@@ -526,28 +529,31 @@
             font-weight: 600;
         }
 
-        /* --- SKILLS & EXPERTISE SECTION --- */
-        #skills {
+        /* --- SERVICES & EXPERTISE SECTION --- */
+        #services {
             background: #050510;
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
             gap: 2rem;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .service-card {
-            background: var(--glass-bg);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
+            background: rgba(14, 14, 32, 0.85);
+            border: 1px solid rgba(0, 245, 255, 0.2);
+            border-radius: 14px;
             padding: 2.2rem;
-            backdrop-filter: blur(12px);
-            transition: 0.35s ease;
+            backdrop-filter: blur(16px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
         .service-card::before {
@@ -560,43 +566,46 @@
         }
 
         .service-card:hover {
+            background: rgba(18, 18, 42, 0.95);
             border-color: var(--cyan);
             transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0, 245, 255, 0.15);
+            box-shadow: 0 15px 40px rgba(0, 245, 255, 0.22), inset 0 0 15px rgba(0, 245, 255, 0.05);
         }
         .service-card:hover::before { opacity: 1; }
 
         .service-icon-wrap {
-            width: 60px; height: 60px;
-            border-radius: 12px;
-            background: rgba(0, 245, 255, 0.08);
-            border: 1px solid rgba(0, 245, 255, 0.25);
+            width: 58px; height: 58px;
+            border-radius: 14px;
+            background: rgba(0, 245, 255, 0.12);
+            border: 1px solid rgba(0, 245, 255, 0.35);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
+            font-size: 1.75rem;
             color: var(--cyan);
             margin-bottom: 1.4rem;
-            transition: 0.3s;
+            box-shadow: 0 0 18px rgba(0, 245, 255, 0.2);
+            transition: all 0.35s ease;
         }
         .service-card:hover .service-icon-wrap {
             background: var(--cyan);
             color: #050510;
-            box-shadow: 0 0 20px var(--cyan);
+            box-shadow: 0 0 25px var(--cyan);
+            transform: scale(1.06);
         }
 
         .service-title {
-            font-size: 1.3rem;
+            font-size: 1.35rem;
             font-weight: 700;
-            color: #fff;
+            color: #ffffff;
             margin-bottom: 0.8rem;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
 
         .service-desc {
-            font-size: 0.98rem;
-            color: var(--text-muted);
-            line-height: 1.6;
+            font-size: 1rem;
+            color: #c8c8d8;
+            line-height: 1.65;
         }
 
         /* --- PROJECTS SECTION --- */
@@ -616,10 +625,10 @@
 
         .filter-btn {
             padding: 9px 24px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 30px;
-            color: #aaa;
+            color: #c0c0d4;
             font-family: 'Orbitron', sans-serif;
             font-size: 0.85rem;
             text-transform: uppercase;
@@ -629,10 +638,10 @@
         }
 
         .filter-btn:hover, .filter-btn.active {
-            background: rgba(0, 245, 255, 0.12);
+            background: rgba(0, 245, 255, 0.15);
             color: #fff;
             border-color: var(--cyan);
-            box-shadow: 0 0 15px rgba(0, 245, 255, 0.3);
+            box-shadow: 0 0 18px rgba(0, 245, 255, 0.35);
         }
 
         .projects-grid {
@@ -651,9 +660,9 @@
         .tilt-card {
             position: relative;
             width: 100%;
-            height: 420px;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
+            min-height: 430px;
+            background: rgba(14, 14, 32, 0.85);
+            border: 1px solid rgba(0, 245, 255, 0.22);
             border-radius: 14px;
             overflow: hidden;
             transform-style: preserve-3d;
@@ -665,7 +674,7 @@
         }
 
         .tilt-card:hover {
-            box-shadow: 0 0 35px rgba(0, 245, 255, 0.28), inset 0 0 20px rgba(0, 245, 255, 0.08);
+            box-shadow: 0 0 35px rgba(0, 245, 255, 0.3), inset 0 0 20px rgba(0, 245, 255, 0.08);
             border-color: var(--cyan);
         }
 
@@ -677,12 +686,12 @@
             background-position: center;
             transition: transform 0.6s ease, filter 0.5s ease;
             transform: scale(1.02);
-            filter: brightness(0.65);
+            filter: brightness(0.6);
         }
 
         .tilt-card:hover .card-bg {
-            transform: scale(1.12);
-            filter: brightness(0.25) blur(3px);
+            transform: scale(1.1);
+            filter: brightness(0.28) blur(2px);
         }
 
         .card-header-badge {
@@ -696,7 +705,7 @@
 
         .badge-type {
             padding: 5px 12px;
-            background: rgba(5, 5, 16, 0.88);
+            background: rgba(5, 5, 16, 0.9);
             border: 1px solid var(--glass-border);
             border-radius: 20px;
             font-size: 0.75rem;
@@ -735,7 +744,7 @@
             position: relative;
             z-index: 3;
             padding: 1.8rem;
-            background: linear-gradient(to top, rgba(5,5,16,0.98) 0%, rgba(5,5,16,0.85) 65%, rgba(5,5,16,0) 100%);
+            background: linear-gradient(to top, rgba(5,5,16,0.98) 0%, rgba(5,5,16,0.88) 75%, rgba(5,5,16,0) 100%);
             transform: translateZ(40px);
             transition: 0.4s ease;
         }
@@ -760,18 +769,9 @@
 
         .card-desc {
             font-size: 0.95rem;
-            color: #d0d0dc;
-            line-height: 1.5;
+            color: #d4d4e6;
+            line-height: 1.55;
             margin-bottom: 1.2rem;
-            max-height: 0;
-            opacity: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease, opacity 0.4s ease, margin 0.4s ease;
-        }
-
-        .tilt-card:hover .card-desc {
-            max-height: 100px;
-            opacity: 1;
         }
 
         .card-btn {
@@ -779,7 +779,7 @@
             align-items: center;
             gap: 8px;
             padding: 0.65rem 1.4rem;
-            background: transparent;
+            background: rgba(0, 245, 255, 0.1);
             border: 1px solid var(--cyan);
             color: #fff;
             text-decoration: none;
@@ -788,14 +788,14 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: 0.3s;
-            border-radius: 4px;
+            border-radius: 6px;
             font-weight: 700;
         }
 
         .card-btn:hover {
             background: var(--cyan);
             color: #050510;
-            box-shadow: 0 0 15px var(--cyan);
+            box-shadow: 0 0 20px var(--cyan);
         }
 
         /* --- CONTACT SECTION --- */
@@ -820,8 +820,8 @@
             z-index: 1;
             width: 100%;
             max-width: 800px;
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(15px);
+            background: rgba(14, 14, 32, 0.85);
+            backdrop-filter: blur(18px);
             border: 1px solid var(--glass-border);
             padding: 3.5rem;
             border-radius: 16px;
@@ -843,7 +843,7 @@
             width: 100%;
             padding: 1.1rem 1.3rem;
             background: rgba(0, 0, 0, 0.55);
-            border: 1px solid rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             color: #fff;
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 1.05rem;
@@ -854,7 +854,7 @@
 
         .contact-input:focus {
             border-color: var(--cyan);
-            box-shadow: 0 0 15px rgba(0, 245, 255, 0.3);
+            box-shadow: 0 0 15px rgba(0, 245, 255, 0.35);
             background: rgba(0, 245, 255, 0.05);
         }
 
@@ -893,7 +893,7 @@
 
         .social-icon {
             font-size: 2rem;
-            color: rgba(255,255,255,0.6);
+            color: rgba(255,255,255,0.65);
             transition: 0.4s;
             text-decoration: none;
             display: inline-block;
@@ -938,8 +938,8 @@
             text-decoration: none;
             color: #fff;
             font-size: 1.5rem;
-            background: rgba(5, 5, 16, 0.85);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(8, 8, 24, 0.88);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(12px);
             transition: all 0.3s ease;
             opacity: 0;
@@ -1045,8 +1045,8 @@
                 top: 100%;
                 left: 0;
                 width: 100%;
-                background: var(--glass-bg);
-                backdrop-filter: blur(16px);
+                background: rgba(8, 8, 20, 0.96);
+                backdrop-filter: blur(18px);
                 flex-direction: column;
                 padding: 2rem;
                 gap: 1.8rem;
@@ -1059,7 +1059,7 @@
             .hero-subtitle { font-size: 1.15rem; }
             .hero-description { font-size: 1.05rem; }
             
-            section { padding: 5rem 5% 3rem; }
+            section { padding: 6rem 5% 3.5rem; }
             .section-title { font-size: 2.2rem; }
             
             .projects-grid { grid-template-columns: 1fr; }
@@ -1076,7 +1076,7 @@
                 right: 50%;
                 transform: translateX(50%);
                 flex-direction: row;
-                background: rgba(5, 5, 16, 0.9);
+                background: rgba(5, 5, 16, 0.92);
                 padding: 8px 18px;
                 border-radius: 40px;
                 border: 1px solid var(--glass-border);
@@ -1547,18 +1547,20 @@
         // Register GSAP Plugin
         gsap.registerPlugin(ScrollTrigger);
 
-        // --- Smooth Scroll (Lenis) ---
+        // --- Smooth Scroll (Lenis) Synchronized with ScrollTrigger ---
         const lenis = new Lenis({
             duration: 1.2,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
             smooth: true,
         });
 
-        function raf(time) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-        }
-        requestAnimationFrame(raf);
+        lenis.on('scroll', ScrollTrigger.update);
+
+        gsap.ticker.add((time) => {
+            lenis.raf(time * 1000);
+        });
+
+        gsap.ticker.lagSmoothing(0);
 
         const isMobile = window.innerWidth <= 768;
 
@@ -1796,7 +1798,7 @@
         // About Stats Counter
         ScrollTrigger.create({
             trigger: "#about",
-            start: "top 65%",
+            start: "top 75%",
             onEnter: () => {
                 document.querySelectorAll('.stat-num').forEach(numEl => {
                     const target = parseInt(numEl.getAttribute('data-target'));
@@ -1812,40 +1814,9 @@
             }
         });
 
-        // Services Entrance
-        gsap.from('.service-card', {
-            y: 50,
-            opacity: 0,
-            stagger: 0.12,
-            duration: 0.7,
-            ease: "power3.out",
-            scrollTrigger: {
-                trigger: "#services",
-                start: "top 68%"
-            }
-        });
-
-        // Projects - Stagger cards
-        gsap.from('.tilt-card-wrapper', {
-            y: 70,
-            opacity: 0,
-            stagger: 0.08,
-            duration: 0.8,
-            scrollTrigger: {
-                trigger: "#projects",
-                start: "top 70%"
-            }
-        });
-
-        // Contact Form
-        gsap.from('.contact-wrapper', {
-            scale: 0.92,
-            opacity: 0,
-            duration: 1,
-            scrollTrigger: {
-                trigger: "#contact",
-                start: "top 70%"
-            }
+        // Refresh triggers on load to guarantee everything is positioned & visible
+        window.addEventListener('load', () => {
+            ScrollTrigger.refresh();
         });
 
         // --- 3D Tilt Cards ---
