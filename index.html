@@ -1,32 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arnav Sharma | Digital Architect</title>
+    <title>Arnav Sharma | CMS Developer & Business Growth Strategist</title>
     <!-- Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         :root {
             --bg-color: #050510;
             --cyan: #00f5ff;
             --violet: #9d00ff;
             --text-main: #ffffff;
-            --glass-bg: rgba(5, 5, 16, 0.6);
+            --glass-bg: rgba(5, 5, 16, 0.7);
             --glass-border: rgba(0, 245, 255, 0.2);
+            --card-bg: rgba(255, 255, 255, 0.03);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            cursor: none;
-            /* Custom cursor used */
+            cursor: none; /* Custom cursor */
         }
 
         body {
@@ -36,34 +34,27 @@
             overflow-x: hidden;
             scrollbar-width: none;
         }
+        body::-webkit-scrollbar { display: none; }
 
-        body::-webkit-scrollbar {
-            display: none;
-        }
-
-        h1,
-        h2,
-        h3,
-        .cyber-text {
+        h1, h2, h3, h4, h5, h6, .cyber-text {
             font-family: 'Orbitron', sans-serif;
         }
 
-        /* Scanline Overlay */
+        /* --- GLOBAL EFFECTS --- */
         .scanlines {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: linear-gradient(to bottom,
-                    rgba(255, 255, 255, 0),
-                    rgba(255, 255, 255, 0) 50%,
-                    rgba(0, 0, 0, 0.1) 50%,
-                    rgba(0, 0, 0, 0.1));
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: linear-gradient(
+                to bottom,
+                rgba(255, 255, 255, 0),
+                rgba(255, 255, 255, 0) 50%,
+                rgba(0, 0, 0, 0.15) 50%,
+                rgba(0, 0, 0, 0.15)
+            );
             background-size: 100% 4px;
             pointer-events: none;
             z-index: 9998;
-            opacity: 0.3;
+            opacity: 0.35;
         }
 
         /* Custom Cursor */
@@ -73,8 +64,7 @@
             background: var(--cyan);
             border-radius: 50%;
             position: fixed;
-            top: 0;
-            left: 0;
+            top: 0; left: 0;
             pointer-events: none;
             z-index: 10000;
             transform: translate(-50%, -50%);
@@ -84,10 +74,8 @@
 
         #cursor-tail {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
             pointer-events: none;
             z-index: 9999;
         }
@@ -95,28 +83,28 @@
         /* Navigation */
         nav {
             position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1.5rem 5%;
+            top: 0; width: 100%;
+            padding: 1.2rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            z-index: 100;
+            z-index: 9000;
             background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--glass-border);
         }
 
         .logo {
             font-size: 1.8rem;
-            font-weight: 700;
+            font-weight: 900;
             color: var(--text-main);
             text-decoration: none;
             font-family: 'Orbitron', sans-serif;
             text-shadow: 0 0 10px var(--cyan);
             letter-spacing: 2px;
         }
+        .logo span { color: var(--cyan); }
 
         .nav-links {
             display: flex;
@@ -127,21 +115,19 @@
             color: var(--text-main);
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             position: relative;
             padding-bottom: 5px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             transition: color 0.3s, text-shadow 0.3s;
         }
 
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
+            bottom: 0; left: 0;
+            width: 0; height: 2px;
             background: var(--cyan);
             transition: width 0.3s ease;
             box-shadow: 0 0 10px var(--cyan);
@@ -156,6 +142,15 @@
             width: 100%;
         }
 
+        .hamburger {
+            display: none;
+            font-size: 1.8rem;
+            color: #fff;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .hamburger:hover { color: var(--cyan); text-shadow: 0 0 10px var(--cyan); }
+
         /* Hero Section */
         #hero {
             height: 100vh;
@@ -168,10 +163,8 @@
 
         #hero-canvas {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             z-index: 0;
         }
 
@@ -182,20 +175,36 @@
             flex-direction: column;
             align-items: center;
             perspective: 1000px;
+            padding: 0 1rem;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 30px;
+            background: rgba(0, 245, 255, 0.08);
+            border: 1px solid rgba(0, 245, 255, 0.3);
+            font-size: 0.95rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--cyan);
+            margin-bottom: 1.5rem;
+            font-family: 'Orbitron', sans-serif;
+            box-shadow: 0 0 15px rgba(0, 245, 255, 0.2);
         }
 
         .hero-title {
-            font-size: 6vw;
+            font-size: 5.5vw;
             font-weight: 900;
             line-height: 1.1;
             margin-bottom: 1rem;
             text-transform: uppercase;
-            letter-spacing: 5px;
+            letter-spacing: 4px;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
         }
-
+        
         .hero-title .char {
             display: inline-block;
             color: #fff;
@@ -203,11 +212,11 @@
         }
 
         .hero-subtitle {
-            font-size: 2vw;
+            font-size: 1.8vw;
             font-family: 'Orbitron', sans-serif;
             color: var(--violet);
             text-shadow: 0 0 15px var(--violet);
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
             height: 2.5vw;
         }
 
@@ -215,7 +224,7 @@
             position: relative;
             display: inline-block;
             padding: 1rem 3rem;
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             font-weight: 700;
             font-family: 'Orbitron', sans-serif;
             color: #fff;
@@ -228,15 +237,13 @@
             transition: 0.3s;
             z-index: 1;
             box-shadow: inset 0 0 0 2px var(--cyan);
+            border-radius: 4px;
         }
 
         .cyber-btn::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            top: 0; left: 0; right: 0; bottom: 0;
             background: var(--cyan);
             z-index: -1;
             transform: scaleX(0);
@@ -245,63 +252,69 @@
             box-shadow: 0 0 20px var(--cyan);
         }
 
-        .cyber-btn:hover::before {
-            transform: scaleX(1);
-        }
-
+        .cyber-btn:hover::before { transform: scaleX(1); }
         .cyber-btn:hover {
             color: #050510;
-            text-shadow: none;
-            box-shadow: 0 0 20px var(--cyan), 0 0 40px var(--cyan);
+            box-shadow: 0 0 25px var(--cyan), 0 0 50px var(--cyan);
         }
 
         /* Sections General */
         section {
             min-height: 100vh;
-            padding: 8rem 5% 4rem;
+            padding: 7rem 5% 4rem;
             position: relative;
             z-index: 1;
         }
 
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-tag {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--cyan);
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
         .section-title {
-            font-size: 3.5rem;
+            font-size: 3.2rem;
             text-transform: uppercase;
             letter-spacing: 3px;
-            margin-bottom: 4rem;
-            text-align: center;
             color: #fff;
             position: relative;
             display: inline-block;
-            left: 50%;
-            transform: translateX(-50%);
         }
 
         .section-title::after {
             content: '';
             position: absolute;
             bottom: -10px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--violet), var(--cyan), transparent);
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--cyan), var(--violet), transparent);
+            box-shadow: 0 0 10px var(--cyan);
         }
 
         /* About Section */
         #about {
             display: flex;
             align-items: center;
-            background: linear-gradient(180deg, var(--bg-color), #0a0a1a);
+            background: linear-gradient(180deg, var(--bg-color), #090918);
             position: relative;
             overflow: hidden;
         }
-
+        
         .circuit-bg {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image:
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
                 linear-gradient(rgba(0, 245, 255, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(0, 245, 255, 0.03) 1px, transparent 1px);
             background-size: 40px 40px;
@@ -311,19 +324,14 @@
         }
 
         @keyframes gridMove {
-            0% {
-                background-position: 0 0;
-            }
-
-            100% {
-                background-position: 0 40px;
-            }
+            0% { background-position: 0 0; }
+            100% { background-position: 0 40px; }
         }
 
         .about-content {
             display: flex;
             align-items: center;
-            gap: 5rem;
+            gap: 4.5rem;
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
@@ -350,14 +358,11 @@
             box-shadow: inset 0 0 30px var(--violet);
             animation: float 4s ease-in-out infinite;
         }
-
+        
         .hex-avatar::before {
             content: '';
             position: absolute;
-            top: 2px;
-            left: 2px;
-            right: 2px;
-            bottom: 2px;
+            top: 2px; left: 2px; right: 2px; bottom: 2px;
             background: var(--bg-color);
             clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
             z-index: 1;
@@ -371,17 +376,49 @@
         }
 
         .about-right {
-            flex: 1.5;
-            font-size: 1.4rem;
+            flex: 1.4;
+            font-size: 1.35rem;
             line-height: 1.8;
             color: #d0d0d0;
         }
 
         .typing-bio {
-            min-height: 150px;
+            min-height: 130px;
             border-left: 2px solid var(--cyan);
             padding-left: 1.5rem;
+            margin-bottom: 2.5rem;
             position: relative;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            padding: 1.2rem;
+            border-radius: 8px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-num {
+            font-size: 2.3rem;
+            font-weight: 900;
+            color: var(--cyan);
+            text-shadow: 0 0 10px var(--cyan);
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: #aaa;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.3rem;
         }
 
         /* Skills Section */
@@ -396,7 +433,7 @@
             max-width: 1000px;
             margin: 0 auto;
             gap: 30px;
-            padding-top: 2rem;
+            padding-top: 1.5rem;
         }
 
         .skill-hex-wrapper {
@@ -417,20 +454,14 @@
 
         .skill-hex {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
             background: var(--cyan);
             clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
         }
 
         .skill-hex-inner {
             position: absolute;
-            top: 2px;
-            left: 2px;
-            right: 2px;
-            bottom: 2px;
+            top: 2px; left: 2px; right: 2px; bottom: 2px;
             background: #0a0a15;
             clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
             display: flex;
@@ -447,218 +478,212 @@
         }
 
         .skill-icon {
-            font-size: 2.5rem;
+            font-size: 2.4rem;
             color: var(--cyan);
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
         }
 
         .skill-title {
             font-family: 'Orbitron', sans-serif;
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 700;
             color: #fff;
         }
 
         /* Projects Section */
         #projects {
-            background: linear-gradient(0deg, var(--bg-color), #0a0a1a);
+            background: linear-gradient(0deg, var(--bg-color), #090918);
+            padding-bottom: 6rem;
+        }
+
+        /* Filter Tabs */
+        .project-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 3.5rem;
+        }
+
+        .filter-btn {
+            padding: 8px 22px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 30px;
+            color: #aaa;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: rgba(0, 245, 255, 0.12);
+            color: #fff;
+            border-color: var(--cyan);
+            box-shadow: 0 0 15px rgba(0, 245, 255, 0.3);
         }
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 3rem;
-            max-width: 1200px;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+            max-width: 1350px;
             margin: 0 auto;
         }
 
         .tilt-card-wrapper {
             perspective: 1000px;
+            transition: opacity 0.4s, transform 0.4s;
         }
 
         .tilt-card {
             position: relative;
             width: 100%;
-            height: 400px;
+            height: 420px;
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
-            border-radius: 12px;
+            border-radius: 14px;
             overflow: hidden;
             transform-style: preserve-3d;
-            transition: transform 0.1s ease, box-shadow 0.4s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.1s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
         }
 
         .tilt-card:hover {
-            box-shadow: 0 0 30px var(--violet), inset 0 0 20px var(--violet);
-            border-color: var(--violet);
+            box-shadow: 0 0 35px rgba(0, 245, 255, 0.3), inset 0 0 20px rgba(0, 245, 255, 0.1);
+            border-color: var(--cyan);
         }
 
         .card-bg {
             position: absolute;
-            top: -5%;
-            left: -5%;
-            width: 110%;
-            height: 110%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             background-size: cover;
             background-position: center;
-            transition: 0.5s;
-            transform: translateZ(-50px);
-            filter: brightness(0.6) grayscale(30%);
+            transition: transform 0.6s ease, filter 0.5s ease;
+            transform: scale(1.02);
+            filter: brightness(0.65);
         }
 
         .tilt-card:hover .card-bg {
-            filter: brightness(0.3) blur(3px);
+            transform: scale(1.12);
+            filter: brightness(0.28) blur(3px);
+        }
+
+        .card-header-badge {
+            position: absolute;
+            top: 15px; left: 15px;
+            z-index: 2;
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .badge-type {
+            padding: 4px 10px;
+            background: rgba(5, 5, 16, 0.85);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            color: var(--cyan);
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            backdrop-filter: blur(8px);
+        }
+
+        .badge-status {
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            backdrop-filter: blur(8px);
+        }
+        .badge-status.live {
+            background: rgba(37, 211, 102, 0.2);
+            color: #25D366;
+            border: 1px solid #25D366;
+            box-shadow: 0 0 8px rgba(37, 211, 102, 0.4);
+        }
+        .badge-status.working {
+            background: rgba(255, 170, 0, 0.2);
+            color: #ffaa00;
+            border: 1px solid #ffaa00;
+            box-shadow: 0 0 8px rgba(255, 170, 0, 0.4);
         }
 
         .card-content {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 2rem;
-            transform: translateZ(50px) translateY(100px);
-            opacity: 0;
-            transition: 0.5s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            height: 100%;
-            background: linear-gradient(to top, rgba(5, 5, 16, 1) 0%, rgba(5, 5, 16, 0) 100%);
-        }
-
-        .tilt-card:hover .card-content {
-            transform: translateZ(50px) translateY(0);
-            opacity: 1;
+            position: relative;
+            z-index: 3;
+            padding: 1.8rem;
+            background: linear-gradient(to top, rgba(5,5,16,0.98) 0%, rgba(5,5,16,0.85) 60%, rgba(5,5,16,0) 100%);
+            transform: translateZ(40px);
+            transition: 0.4s ease;
         }
 
         .card-title {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 0.4rem;
+            text-shadow: 0 0 10px rgba(0, 245, 255, 0.5);
+        }
+
+        .card-tech {
+            font-size: 0.95rem;
             color: var(--cyan);
-            margin-bottom: 0.5rem;
-            text-shadow: 0 0 10px var(--cyan);
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
         .card-desc {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: #ccc;
-            margin-bottom: 1.5rem;
+            line-height: 1.5;
+            margin-bottom: 1.2rem;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, opacity 0.4s ease, margin 0.4s ease;
+        }
+
+        .tilt-card:hover .card-desc {
+            max-height: 100px;
+            opacity: 1;
         }
 
         .card-btn {
-            align-self: flex-start;
-            padding: 0.5rem 1.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.6rem 1.4rem;
             background: transparent;
             border: 1px solid var(--cyan);
             color: #fff;
             text-decoration: none;
             font-family: 'Orbitron', sans-serif;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
+            letter-spacing: 1px;
             transition: 0.3s;
+            border-radius: 4px;
         }
 
         .card-btn:hover {
             background: var(--cyan);
-            color: #000;
+            color: #050510;
             box-shadow: 0 0 15px var(--cyan);
-        }
-
-        /* Dynamic Card Badges & Animations */
-        .card-badges {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            margin-bottom: auto;
-            padding-bottom: 1rem;
-        }
-
-        .tech-badge {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.75rem;
             font-weight: 700;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border: 1px solid transparent;
-        }
-
-        .tech-next-react {
-            color: #00f5ff;
-            background: rgba(0, 245, 255, 0.1);
-            border-color: rgba(0, 245, 255, 0.3);
-            text-shadow: 0 0 5px rgba(0, 245, 255, 0.5);
-        }
-
-        .tech-wordpress {
-            color: #00a2ff;
-            background: rgba(0, 162, 255, 0.1);
-            border-color: rgba(0, 162, 255, 0.3);
-            text-shadow: 0 0 5px rgba(0, 162, 255, 0.5);
-        }
-
-        .tech-shopify {
-            color: #22c55e;
-            background: rgba(34, 197, 94, 0.1);
-            border-color: rgba(34, 197, 94, 0.3);
-            text-shadow: 0 0 5px rgba(34, 197, 94, 0.5);
-        }
-
-        .status-badge {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            color: #ffffff;
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
-        }
-
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            display: inline-block;
-        }
-
-        .status-dot.done {
-            background-color: #22c55e;
-            box-shadow: 0 0 8px #22c55e;
-        }
-
-        .status-dot.working {
-            background-color: #f59e0b;
-            box-shadow: 0 0 8px #f59e0b;
-            animation: statusPulse 1.5s infinite alternate;
-        }
-
-        @keyframes statusPulse {
-            0% {
-                transform: scale(0.9);
-                box-shadow: 0 0 2px #f59e0b;
-                opacity: 0.8;
-            }
-            100% {
-                transform: scale(1.1);
-                box-shadow: 0 0 10px #f59e0b;
-                opacity: 1;
-            }
-        }
-
-        .view-all-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 4rem;
-            position: relative;
-            z-index: 10;
-        }
-
-        .hidden-card {
-            display: none;
         }
 
         /* Contact Section */
@@ -673,10 +698,7 @@
 
         .contact-particles {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
             z-index: 0;
             pointer-events: none;
         }
@@ -688,17 +710,17 @@
             max-width: 800px;
             background: rgba(255, 255, 255, 0.02);
             backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 4rem;
-            border-radius: 20px;
-            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--glass-border);
+            padding: 3.5rem;
+            border-radius: 16px;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.6);
         }
 
         .contact-form {
             display: flex;
             flex-direction: column;
             gap: 1.5rem;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
         }
 
         .input-group {
@@ -707,13 +729,13 @@
 
         .contact-input {
             width: 100%;
-            padding: 1.2rem;
+            padding: 1.1rem 1.3rem;
             background: rgba(0, 0, 0, 0.5);
             border: 1px solid rgba(255, 255, 255, 0.1);
             color: #fff;
             font-family: 'Rajdhani', sans-serif;
             font-size: 1.1rem;
-            border-radius: 5px;
+            border-radius: 6px;
             transition: 0.3s;
             outline: none;
         }
@@ -725,23 +747,23 @@
         }
 
         textarea.contact-input {
-            height: 150px;
+            height: 140px;
             resize: vertical;
         }
 
         .submit-btn {
             width: 100%;
-            padding: 1.2rem;
+            padding: 1.1rem;
             background: transparent;
             border: 2px solid var(--violet);
             color: #fff;
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             transition: 0.3s;
-            border-radius: 5px;
-            cursor: none;
+            border-radius: 6px;
+            font-weight: 700;
         }
 
         .submit-btn:hover {
@@ -757,8 +779,8 @@
         }
 
         .social-icon {
-            font-size: 2.5rem;
-            color: rgba(255, 255, 255, 0.5);
+            font-size: 2.2rem;
+            color: rgba(255,255,255,0.5);
             transition: 0.4s;
             text-decoration: none;
             display: inline-block;
@@ -767,19 +789,17 @@
         .social-icon.email:hover {
             color: #ff3366;
             text-shadow: 0 0 20px #ff3366;
-            transform: translateY(-10px);
+            transform: translateY(-8px);
         }
-
         .social-icon.linkedin:hover {
             color: #0077b5;
             text-shadow: 0 0 20px #0077b5;
-            transform: translateY(-10px);
+            transform: translateY(-8px);
         }
-
         .social-icon.github:hover {
             color: #ffffff;
             text-shadow: 0 0 20px #ffffff;
-            transform: translateY(-10px);
+            transform: translateY(-8px);
         }
 
         /* Floating CTA Sidebar */
@@ -796,8 +816,8 @@
 
         .floating-cta a {
             position: relative;
-            width: 50px;
-            height: 50px;
+            width: 52px;
+            height: 52px;
             border-radius: 50%;
             display: flex;
             justify-content: center;
@@ -805,9 +825,9 @@
             text-decoration: none;
             color: #fff;
             font-size: 1.5rem;
-            background: rgba(5, 5, 16, 0.8);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            background: rgba(5, 5, 16, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
             transition: all 0.3s ease;
             opacity: 0;
             transform: translateX(50px);
@@ -817,11 +837,11 @@
         .cta-label {
             position: absolute;
             right: 50px;
-            background: rgba(5, 5, 16, 0.9);
-            padding: 5px 15px;
+            background: rgba(5, 5, 16, 0.95);
+            padding: 6px 16px;
             border-radius: 20px;
             font-family: 'Orbitron', sans-serif;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #fff;
             white-space: nowrap;
             opacity: 0;
@@ -830,57 +850,51 @@
             border: 1px solid transparent;
         }
 
-        .floating-cta a:hover {
-            left: -5px;
-        }
+        .floating-cta a:hover { left: -5px; }
 
         .cta-btn-whatsapp:hover {
             background: #25D366;
-            box-shadow: 0 0 20px #25D366;
+            box-shadow: 0 0 25px #25D366;
             border-color: #25D366;
         }
-
         .cta-btn-whatsapp:hover .cta-label {
             opacity: 1;
-            right: 65px;
+            right: 68px;
             border-color: #25D366;
             box-shadow: 0 0 10px #25D366;
         }
 
         .cta-btn-linkedin:hover {
             background: #0077B5;
-            box-shadow: 0 0 20px #0077B5;
+            box-shadow: 0 0 25px #0077B5;
             border-color: #0077B5;
         }
-
         .cta-btn-linkedin:hover .cta-label {
             opacity: 1;
-            right: 65px;
+            right: 68px;
             border-color: #0077B5;
             box-shadow: 0 0 10px #0077B5;
         }
 
         .cta-btn-mail:hover {
             background: #00f5ff;
-            box-shadow: 0 0 20px #00f5ff;
+            box-shadow: 0 0 25px #00f5ff;
             border-color: #00f5ff;
             color: #050510;
         }
-
         .cta-btn-mail:hover .cta-label {
             opacity: 1;
-            right: 65px;
+            right: 68px;
             border-color: #00f5ff;
             box-shadow: 0 0 10px #00f5ff;
             color: #00f5ff;
-            background: rgba(5, 5, 16, 0.9);
+            background: rgba(5, 5, 16, 0.95);
         }
 
         /* Section Transition Line */
         .section-transition {
             position: absolute;
-            bottom: 0;
-            left: 0;
+            bottom: 0; left: 0;
             width: 100%;
             height: 2px;
             background: var(--cyan);
@@ -892,28 +906,8 @@
 
         /* Animations */
         @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-
-        .hamburger {
-            display: none;
-            font-size: 1.8rem;
-            color: #fff;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .hamburger:hover {
-            color: var(--cyan);
-            text-shadow: 0 0 10px var(--cyan);
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-18px); }
         }
 
         /* Responsive */
@@ -922,35 +916,15 @@
                 flex-direction: column;
                 text-align: center;
             }
-
-            .hero-title {
-                font-size: 8vw;
-            }
-
-            .hero-subtitle {
-                font-size: 4vw;
-                height: 5vw;
-            }
-
-            .projects-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            .hero-title { font-size: 7vw; }
+            .hero-subtitle { font-size: 3.5vw; height: 4vw; }
         }
 
         @media (max-width: 768px) {
-            * {
-                cursor: auto !important;
-            }
+            * { cursor: auto !important; }
+            #cursor, #cursor-tail { display: none !important; }
 
-            #cursor,
-            #cursor-tail {
-                display: none !important;
-            }
-
-            .hamburger {
-                display: block;
-            }
-
+            .hamburger { display: block; }
             .nav-links {
                 display: none;
                 position: absolute;
@@ -961,34 +935,18 @@
                 backdrop-filter: blur(15px);
                 flex-direction: column;
                 padding: 2rem;
-                gap: 2rem;
+                gap: 1.8rem;
                 text-align: center;
                 border-bottom: 1px solid var(--glass-border);
             }
+            .nav-links.active { display: flex; }
 
-            .nav-links.active {
-                display: flex;
-            }
-
-            .hero-title {
-                font-size: 2.5rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.2rem;
-                height: auto;
-                margin-bottom: 2rem;
-            }
-
-            section {
-                padding: 5rem 5% 3rem;
-            }
-
-            .section-title {
-                font-size: 2.5rem;
-                margin-bottom: 2.5rem;
-            }
-
+            .hero-title { font-size: 2.5rem; }
+            .hero-subtitle { font-size: 1.15rem; height: auto; margin-bottom: 2rem; }
+            
+            section { padding: 5rem 5% 3rem; }
+            .section-title { font-size: 2.3rem; }
+            
             .hex-grid {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
@@ -996,25 +954,15 @@
                 justify-items: center;
                 transform: scale(0.85);
                 transform-origin: top center;
-                margin-bottom: -50px;
+                margin-bottom: -40px;
             }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-wrapper {
-                padding: 2rem 1.5rem;
-                width: 100%;
-            }
-
-            .about-left {
-                height: 300px;
-            }
-
-            .hex-avatar {
-                transform: scale(0.8);
-            }
+            
+            .projects-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr; }
+            
+            .contact-wrapper { padding: 2rem 1.2rem; width: 100%; }
+            .about-left { height: 280px; }
+            .hex-avatar { transform: scale(0.75); }
 
             .floating-cta {
                 top: auto;
@@ -1022,61 +970,56 @@
                 right: 50%;
                 transform: translateX(50%);
                 flex-direction: row;
-                background: rgba(5, 5, 16, 0.8);
-                padding: 10px 20px;
+                background: rgba(5, 5, 16, 0.9);
+                padding: 8px 18px;
                 border-radius: 40px;
                 border: 1px solid var(--glass-border);
-                backdrop-filter: blur(10px);
+                backdrop-filter: blur(12px);
             }
-
             .floating-cta a {
                 border: none;
                 background: transparent;
                 backdrop-filter: none;
-                width: 40px;
-                height: 40px;
+                width: 42px;
+                height: 42px;
+                font-size: 1.3rem;
             }
-
-            .floating-cta a:hover {
-                left: 0;
-                transform: translateY(-5px) !important;
-            }
-
-            .cta-label {
-                display: none;
-            }
+            .floating-cta a:hover { left: 0; transform: translateY(-5px) !important; }
+            .cta-label { display: none; }
         }
     </style>
 </head>
-
 <body>
-
+    
     <div class="scanlines"></div>
 
     <div id="cursor"></div>
     <canvas id="cursor-tail"></canvas>
 
     <nav>
-        <a href="#" class="logo">AS.OS</a>
+        <a href="#" class="logo">AS<span>.OS</span></a>
         <div class="nav-links">
             <a href="#about">System.Info</a>
             <a href="#skills">Modules</a>
-            <a href="#projects">Executables</a>
+            <a href="#projects">Deployments</a>
             <a href="#contact">Comm.Link</a>
         </div>
         <i class="fas fa-bars hamburger"></i>
     </nav>
 
+    <!-- HERO SECTION -->
     <section id="hero">
         <canvas id="hero-canvas"></canvas>
         <div class="hero-content">
+            <div class="hero-badge"><i class="fas fa-satellite-dish" style="margin-right: 6px;"></i> Ready For Deployment</div>
             <h1 class="hero-title">Arnav Sharma</h1>
             <div class="hero-subtitle" id="typewriter"></div>
-            <a href="#about" class="cyber-btn">Enter My World</a>
+            <a href="#projects" class="cyber-btn">Explore Deployments</a>
         </div>
         <div class="section-transition"></div>
     </section>
 
+    <!-- ABOUT SECTION -->
     <section id="about">
         <div class="circuit-bg" data-speed="0.2"></div>
         <div class="about-content">
@@ -1086,75 +1029,343 @@
                 </div>
             </div>
             <div class="about-right" data-speed="1.2">
-                <h2 class="section-title" style="text-align: left; left: 0; transform: none; margin-bottom: 2rem;">
-                    System Identity</h2>
+                <div class="section-header" style="text-align: left; margin-bottom: 1.5rem;">
+                    <span class="section-tag">// IDENTITY PROTOCOL</span>
+                    <h2 class="section-title" style="margin-bottom: 0;">System Profile</h2>
+                </div>
                 <div class="typing-bio"></div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-num" data-target="3">0+</div>
+                        <div class="stat-label">Years Exp</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-num" data-target="20">0+</div>
+                        <div class="stat-label">Projects Delivered</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-num" data-target="15">0+</div>
+                        <div class="stat-label">Happy Clients</div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="section-transition"></div>
     </section>
 
+    <!-- SKILLS SECTION -->
     <section id="skills">
-        <h2 class="section-title">Core Modules</h2>
+        <div class="section-header">
+            <span class="section-tag">// ARCHITECTURE & STRATEGY</span>
+            <h2 class="section-title">Core Modules</h2>
+        </div>
         <div class="hex-grid">
             <!-- Skills generated via JS for cleaner code -->
         </div>
         <div class="section-transition"></div>
     </section>
 
+    <!-- PROJECTS SECTION -->
     <section id="projects">
-        <h2 class="section-title">Active Deployments</h2>
-        <div class="projects-grid" id="projects-grid">
-            <!-- Dynamic project cards will be injected here via JS -->
+        <div class="section-header">
+            <span class="section-tag">// VERIFIED PORTFOLIO (14 REPOSITORIES)</span>
+            <h2 class="section-title">Active Deployments</h2>
         </div>
-        <div class="view-all-container">
-            <button id="view-all-btn" class="cyber-btn">View All Projects</button>
+
+        <!-- Filter Controls -->
+        <div class="project-filters">
+            <button class="filter-btn active" data-filter="all">All Systems (14)</button>
+            <button class="filter-btn" data-filter="nextjs">Next.js / React</button>
+            <button class="filter-btn" data-filter="wordpress">WordPress</button>
+            <button class="filter-btn" data-filter="shopify">Shopify / E-Com</button>
+            <button class="filter-btn" data-filter="dynamic">Dynamic & 3D</button>
+        </div>
+
+        <div class="projects-grid" id="projects-container">
+            
+            <!-- 1. AI Web Design -->
+            <div class="tilt-card-wrapper" data-category="dynamic">
+                <div class="tilt-card">
+                    <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="card-header-badge">
+                        <span class="badge-type">3D / AI Showcase</span>
+                        <span class="badge-status live">Live</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">AI Web Design Website</h3>
+                        <div class="card-tech"><i class="fas fa-microchip"></i> Three.js • GSAP • AI Neural</div>
+                        <p class="card-desc">Interactive 3D landing page showcasing artificial intelligence capabilities and neural network visualizers.</p>
+                        <a href="https://arnav-sharma437.github.io/ai-3d-website/" target="_blank" class="card-btn">Live Demo <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. GoGadget -->
+            <div class="tilt-card-wrapper" data-category="shopify">
+                <div class="tilt-card">
+                    <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="card-header-badge">
+                        <span class="badge-type">E-Commerce</span>
+                        <span class="badge-status live">Live</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">GoGadget Store</h3>
+                        <div class="card-tech"><i class="fab fa-shopify"></i> Shopify • Liquid • Tech Store</div>
+                        <p class="card-desc">High-conversion consumer tech & gadget e-commerce platform built for velocity, mobile checkout, and high volume.</p>
+                        <a href="https://gogadget.co.in" target="_blank" class="card-btn">Live Demo <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Katoch Organic Farm -->
+            <div class="tilt-card-wrapper" data-category="nextjs">
+                <div class="tilt-card">
+                    <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="card-header-badge">
+                        <span class="badge-type">Organic Farm</span>
+                        <span class="badge-status live">Live</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Katoch Organic Farm</h3>
+                        <div class="card-tech"><i class="fab fa-react"></i> Next.js • React • Organic</div>
+                        <p class="card-desc">Sustainable agriculture portal connecting pure organic farming harvests directly with wellness consumers.</p>
+                        <a href="https://katochorganicfarm.com/" target="_blank" class="card-btn">Live Demo <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Sadhna Space -->
+            <div class="tilt-card-wrapper" data-category="wordpress">
+                <div class="tilt-card">
+                    <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="card-header-badge">
+                        <span class="badge-type">Meditation & Retreats</span>
+                        <span class="badge-status live">Live</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Sadhna Space</h3>
+                        <div class="card-tech"><i class="fab fa-wordpress"></i> WordPress • CMS • Wellness</div>
+                        <p class="card-desc">Serene mindfulness sanctuary and meditation portal with curated guided sessions and retreat booking.</p>
+                        <a href="https://sadhna.space/" target="_blank" class="card-btn">Live Demo <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Credmax India -->
+            <div class="tilt-card-wrapper" data-category="nextjs">
+                <div class="tilt-card">
+                    <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="card-header-badge">
+                        <span class="badge-type">Fintech / Calculator</span>
+                        <span class="badge-status live">Live</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Credmax India</h3>
+                        <div class="card-tech"><i class="fab fa-react"></i> Next.js • React • Financial Engine</div>
+                        <p class="card-desc">Financial consulting ecosystem integrated with interactive loan calculators, credit advisory, and instant evaluations.</p>
+                        <a href="https://credmaxindia.com/" target="_blank" class="card-btn">Live Demo <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. MeraRoom -->
+            <div class="tilt-card-wrapper" data-category="dynamic">
+                <div class="tilt-card">
+                    <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="card-header-badge">
+                        <span class="badge-type">Dynamic Web App</span>
+                        <span class="badge-status live">Live</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">MeraRoom Accommodation</h3>
+                        <div class="card-tech"><i class="fab fa-react"></i> Next.js • React • Realtime DB</div>
+                        <p class="card-desc">Dynamic student hostel and urban room discovery marketplace with real-time availability and smart search filters.</p>
+                        <a href="https://www.meraroom.in/" target="_blank" class="card-btn">Live Demo <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. Dolph & Delph -->
+            <div class="tilt-card-wrapper" data-category="wordpress shopify">
+                <div class="tilt-card">
+                    <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="card-header-badge">
+                        <span class="badge-type">Fashion E-Com</span>
+                        <span class="badge-status live">Live</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Dolph & Delph</h3>
+                        <div class="card-tech"><i class="fab fa-wordpress"></i> WordPress • WooCommerce • Apparel</div>
+                        <p class="card-desc">Modern designer clothing storefront built for luxury aesthetics, responsive size guides, and fluid payment gateways.</p>
+                        <a href="https://dolphandelph.com/" target="_blank" class="card-btn">Live Demo <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8. Hakimi Industrial Solutions -->
+            <div class="tilt-card-wrapper" data-category="wordpress shopify">
+                <div class="tilt-card">
+                    <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="card-header-badge">
+                        <span class="badge-type">Industrial Tools</span>
+                        <span class="badge-status live">Live</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Hakimi Industrial Solutions</h3>
+                        <div class="card-tech"><i class="fab fa-wordpress"></i> WordPress • B2B Catalog • Tools</div>
+                        <p class="card-desc">B2B industrial hardware, power tools, and supply chain management portal supporting factory procurement.</p>
+                        <a href="https://hakimiindustrialsols.com/" target="_blank" class="card-btn">Live Demo <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 9. Vraj Agro -->
+            <div class="tilt-card-wrapper" data-category="nextjs shopify">
+                <div class="tilt-card">
+                    <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="card-header-badge">
+                        <span class="badge-type">Agro E-Com</span>
+                        <span class="badge-status live">Live</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Vraj Agro Products</h3>
+                        <div class="card-tech"><i class="fab fa-react"></i> Next.js • React • Agro Supply</div>
+                        <p class="card-desc">Modern agriculture supply network offering high-yield bio fertilizers, crop seeds, and farming essentials.</p>
+                        <a href="https://vrajagro.in/" target="_blank" class="card-btn">Live Demo <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 10. AEC Lifting Solution -->
+            <div class="tilt-card-wrapper" data-category="nextjs shopify">
+                <div class="tilt-card">
+                    <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1541888946425-d0fbb180c5f5?auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="card-header-badge">
+                        <span class="badge-type">Heavy Cranes & Machinery</span>
+                        <span class="badge-status live">Live</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">AEC Lifting Solution</h3>
+                        <div class="card-tech"><i class="fab fa-react"></i> Next.js • React • Heavy Industry</div>
+                        <p class="card-desc">Industrial lifting gear, crane hire, and structural rigging solutions built for construction engineering giants.</p>
+                        <a href="https://aecliftingsolution.com/" target="_blank" class="card-btn">Live Demo <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 11. Alpesh Yoga -->
+            <div class="tilt-card-wrapper" data-category="wordpress">
+                <div class="tilt-card">
+                    <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="card-header-badge">
+                        <span class="badge-type">Yoga Academy</span>
+                        <span class="badge-status live">Live</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Alpesh Yoga Academy</h3>
+                        <div class="card-tech"><i class="fab fa-wordpress"></i> WordPress • Retreat Portal • SEO</div>
+                        <p class="card-desc">Global yoga certification and retreat portal based in Goa and Dharamshala, handling global student admissions.</p>
+                        <a href="https://www.alpeshyoga.com/" target="_blank" class="card-btn">Live Demo <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 12. Skill Store -->
+            <div class="tilt-card-wrapper" data-category="nextjs dynamic shopify">
+                <div class="tilt-card">
+                    <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="card-header-badge">
+                        <span class="badge-type">Digital Education</span>
+                        <span class="badge-status working">In Progress</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Skill Store Hub</h3>
+                        <div class="card-tech"><i class="fab fa-react"></i> Next.js • Vercel • Courses</div>
+                        <p class="card-desc">Modern digital skills marketplace providing on-demand professional courses, tracks, and certified curricula.</p>
+                        <a href="https://skill-store-delta.vercel.app/" target="_blank" class="card-btn">Live Preview <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 13. Glam & Go Academy -->
+            <div class="tilt-card-wrapper" data-category="nextjs shopify">
+                <div class="tilt-card">
+                    <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="card-header-badge">
+                        <span class="badge-type">Cosmetics & Academy</span>
+                        <span class="badge-status live">Live</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Glam & Go Academy</h3>
+                        <div class="card-tech"><i class="fab fa-react"></i> Next.js • Cosmetics E-Com • Courses</div>
+                        <p class="card-desc">Premier beauty and makeup academy featuring masterclass enrollment, course scheduling, and cosmetic store.</p>
+                        <a href="https://www.glamandgoacademy.com/" target="_blank" class="card-btn">Live Demo <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 14. Sonavi Crafts -->
+            <div class="tilt-card-wrapper" data-category="nextjs">
+                <div class="tilt-card">
+                    <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="card-header-badge">
+                        <span class="badge-type">Art & Crafts</span>
+                        <span class="badge-status live">Live</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Sonavi Crafts</h3>
+                        <div class="card-tech"><i class="fab fa-react"></i> Next.js • React • Artisan Decor</div>
+                        <p class="card-desc">Artisanal showcase dedicated to handcrafted Indian pottery, cultural decor, and bespoke traditional art.</p>
+                        <a href="https://www.sonavicrafts.com/" target="_blank" class="card-btn">Live Demo <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
+    <!-- CONTACT SECTION -->
     <section id="contact">
         <div class="contact-particles" id="contact-particles"></div>
-        <h2 class="section-title">Establish Uplink</h2>
+        <div class="section-header">
+            <span class="section-tag">// SECURE TRANSMISSION</span>
+            <h2 class="section-title">Establish Uplink</h2>
+        </div>
         <div class="contact-wrapper">
             <form class="contact-form" id="contact-form" action="https://formspree.io/f/xrerwowr" method="POST">
                 <input type="hidden" name="_subject" value="New message from Arnav's Portfolio!">
                 <div class="input-group">
-                    <input type="text" name="name" class="contact-input" placeholder="Entity Designation (Name)"
-                        required>
+                    <input type="text" name="name" class="contact-input" placeholder="Entity Designation (Your Name)" required>
                 </div>
                 <div class="input-group">
-                    <input type="email" name="email" class="contact-input" placeholder="Return Vector (Email)" required>
+                    <input type="email" name="email" class="contact-input" placeholder="Return Vector (Your Email)" required>
                 </div>
                 <div class="input-group">
-                    <textarea name="message" class="contact-input" placeholder="Transmission Payload (Message)"
-                        required></textarea>
+                    <textarea name="message" class="contact-input" placeholder="Transmission Payload (Your Message)" required></textarea>
                 </div>
                 <button type="submit" class="submit-btn">Transmit Signal</button>
-                <p id="form-status"
-                    style="display: none; color: var(--cyan); text-shadow: 0 0 10px var(--cyan); text-align: center; font-family: 'Orbitron', sans-serif; font-size: 1.1rem; margin-top: 1rem;">
-                </p>
+                <p id="form-status" style="display: none; color: var(--cyan); text-shadow: 0 0 10px var(--cyan); text-align: center; font-family: 'Orbitron', sans-serif; font-size: 1.1rem; margin-top: 1rem;"></p>
             </form>
-
+            
             <div class="social-container">
-                <a href="mailto:aarnavsharma437@gmail.com" class="social-icon email"><i class="fas fa-envelope"></i></a>
-                <a href="https://www.linkedin.com/in/arnav-sharma-9254922a9/" target="_blank"
-                    class="social-icon linkedin"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/arnav-sharma437" target="_blank" class="social-icon github"><i
-                        class="fab fa-github"></i></a>
+                <a href="mailto:aarnavsharma437@gmail.com" class="social-icon email" title="Email Direct"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/arnav-sharma-9254922a9" target="_blank" class="social-icon linkedin" title="LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/arnav-sharma437" target="_blank" class="social-icon github" title="GitHub Profile"><i class="fab fa-github"></i></a>
             </div>
         </div>
     </section>
 
+    <!-- STICKY FLOATING CTA SIDEBAR -->
     <div class="floating-cta">
-        <a href="https://wa.me/917876650437" target="_blank" class="cta-btn-whatsapp">
+        <a href="https://wa.me/917876650437" target="_blank" class="cta-btn-whatsapp" title="WhatsApp">
             <span class="cta-label">WhatsApp</span>
             <i class="fab fa-whatsapp"></i>
         </a>
-        <a href="https://www.linkedin.com/in/arnav-sharma-9254922a9" target="_blank" class="cta-btn-linkedin">
+        <a href="https://www.linkedin.com/in/arnav-sharma-9254922a9" target="_blank" class="cta-btn-linkedin" title="LinkedIn">
             <span class="cta-label">LinkedIn</span>
             <i class="fab fa-linkedin-in"></i>
         </a>
-        <a href="mailto:aarnavsharma437@gmail.com" class="cta-btn-mail">
+        <a href="mailto:aarnavsharma437@gmail.com" class="cta-btn-mail" title="Email">
             <span class="cta-label">Mail</span>
             <i class="fas fa-envelope"></i>
         </a>
@@ -1169,160 +1380,6 @@
     <script>
         // Register GSAP Plugin
         gsap.registerPlugin(ScrollTrigger);
-
-        // --- Dynamic Project Grid Implementation ---
-        const projectsData = [
-            { name: "GoGadget", url: "https://gogadget.co.in", tech: "Shopify", status: "Done", image: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&q=80" },
-            { name: "Katoch Organic Farm", url: "https://katochorganicfarm.com/", tech: "Next/React", status: "Done", image: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&q=80" },
-            { name: "Sadhna", url: "https://sadhna.space/", tech: "WordPress", status: "Done", image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80" },
-            { name: "MeraRoom", url: "https://www.meraroom.in/", tech: "Next/React", status: "Working", image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&q=80" },
-            { name: "Dolphan Delph", url: "https://dolphandelph.com/", tech: "WordPress", status: "Working", image: "https://images.unsplash.com/photo-1570481662006-a3a13746fe4e?auto=format&fit=crop&q=80" },
-            { name: "AEC Website", url: "https://aec-website-nu.vercel.app/", tech: "Next/React", status: "Working", image: "https://images.unsplash.com/photo-1503387762-592ded58c45a?auto=format&fit=crop&q=80" },
-            { name: "Hakimi Industrial Solutions", url: "https://hakimiindustrialsols.com/", tech: "WordPress", status: "Working", image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80" },
-            { name: "V Raj Agro", url: "https://v-raj-agro.vercel.app/", tech: "Next/React", status: "Working", image: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&q=80" },
-            { name: "Alpesh Yoga (We Are One Tech Nation)", url: "https://www.weareonetechnation.com/alpeshyoga/", tech: "WordPress", status: "Working", image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80" },
-            { name: "Cashmax India", url: "https://cashmaxindia-vx9b.vercel.app/", tech: "Next/React", status: "Working", image: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&q=80" }
-        ];
-
-        function getTechDescription(tech) {
-            switch(tech) {
-                case "Shopify": return "E-commerce storefront";
-                case "Next/React": return "Custom web application";
-                case "WordPress": return "Content-driven business website";
-                default: return "Web development project";
-            }
-        }
-
-        function getTechClass(tech) {
-            switch(tech) {
-                case "Next/React": return "tech-next-react";
-                case "WordPress": return "tech-wordpress";
-                case "Shopify": return "tech-shopify";
-                default: return "";
-            }
-        }
-
-        const projectsGrid = document.getElementById('projects-grid');
-        const viewAllBtn = document.getElementById('view-all-btn');
-        let showAll = false;
-
-        function renderProjects() {
-            if (!projectsGrid) return;
-            projectsGrid.innerHTML = '';
-
-            projectsData.forEach((project, idx) => {
-                const isHidden = idx >= 6;
-                const wrapper = document.createElement('div');
-                wrapper.className = `tilt-card-wrapper${isHidden ? ' hidden-card' : ''}`;
-                
-                const derivedDescription = getTechDescription(project.tech);
-                const techClass = getTechClass(project.tech);
-                const statusDotClass = project.status === 'Done' ? 'done' : 'working';
-                const statusText = project.status === 'Done' ? 'LIVE' : 'IN PROGRESS';
-
-                wrapper.innerHTML = `
-                    <div class="tilt-card">
-                        <div class="card-bg" style="background-image: url('${project.image}')"></div>
-                        <div class="card-content">
-                            <div class="card-badges">
-                                <span class="tech-badge ${techClass}">${project.tech}</span>
-                                <span class="status-badge">
-                                    <span class="status-dot ${statusDotClass}"></span>
-                                    ${statusText}
-                                </span>
-                            </div>
-                            <h3 class="card-title">${project.name}</h3>
-                            <p class="card-desc">${derivedDescription}</p>
-                            <a href="${project.url}" target="_blank" rel="noopener noreferrer" class="card-btn">Visit Site</a>
-                        </div>
-                    </div>
-                `;
-
-                projectsGrid.appendChild(wrapper);
-            });
-        }
-
-        // Render projects immediately on script load
-        renderProjects();
-
-        // Handle Expand/Collapse Toggle
-        if (viewAllBtn) {
-            viewAllBtn.addEventListener('click', () => {
-                showAll = !showAll;
-                const hiddenCards = document.querySelectorAll('.projects-grid .hidden-card');
-
-                if (showAll) {
-                    viewAllBtn.textContent = 'Show Less';
-                    // Animate in using GSAP
-                    gsap.fromTo(hiddenCards, 
-                        { display: 'block', opacity: 0, y: 50 }, 
-                        { 
-                            opacity: 1, 
-                            y: 0, 
-                            duration: 0.6, 
-                            stagger: 0.15, 
-                            ease: "power2.out",
-                            onComplete: () => {
-                                // Re-initialize 3D tilt for the new cards since they are now visible
-                                if (typeof THREE !== 'undefined' && !isMobile) {
-                                    initializeTiltForCards(hiddenCards);
-                                }
-                            }
-                        }
-                    );
-                } else {
-                    viewAllBtn.textContent = 'View All Projects';
-                    // Animate out using GSAP
-                    gsap.to(hiddenCards, {
-                        opacity: 0,
-                        y: 50,
-                        duration: 0.4,
-                        stagger: 0.05,
-                        ease: "power2.in",
-                        onComplete: () => {
-                            hiddenCards.forEach(c => c.style.display = 'none');
-                            // Smoothly scroll back to the projects section start
-                            lenis.scrollTo('#projects', { offset: -50, duration: 1 });
-                        }
-                    });
-                }
-            });
-        }
-
-        // Helper function to bind 3D tilt effect to specified cards
-        function initializeTiltForCards(cards) {
-            cards.forEach(cardWrapper => {
-                const card = cardWrapper.querySelector('.tilt-card');
-                if (!card) return;
-                
-                // Remove existing listeners if any
-                card.removeEventListener('mousemove', handleCardTilt);
-                card.removeEventListener('mouseleave', resetCardTilt);
-
-                // Add new listeners
-                card.addEventListener('mousemove', handleCardTilt);
-                card.addEventListener('mouseleave', resetCardTilt);
-            });
-        }
-
-        function handleCardTilt(e) {
-            const card = e.currentTarget;
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-
-            const rotateX = ((y - centerY) / centerY) * -15;
-            const rotateY = ((x - centerX) / centerX) * 15;
-
-            card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-        }
-
-        function resetCardTilt(e) {
-            e.currentTarget.style.transform = `rotateX(0) rotateY(0)`;
-        }
 
         // --- Smooth Scroll (Lenis) ---
         const lenis = new Lenis({
@@ -1346,7 +1403,6 @@
             hamburger.addEventListener('click', () => {
                 navLinks.classList.toggle('active');
             });
-            // Close menu on link click
             document.querySelectorAll('.nav-links a').forEach(link => {
                 link.addEventListener('click', () => {
                     navLinks.classList.remove('active');
@@ -1357,15 +1413,15 @@
         // --- Formspree AJAX Submit ---
         const contactForm = document.getElementById('contact-form');
         const formStatus = document.getElementById('form-status');
-
+        
         if (contactForm) {
-            contactForm.addEventListener('submit', async function (event) {
+            contactForm.addEventListener('submit', async function(event) {
                 event.preventDefault();
                 const data = new FormData(contactForm);
                 const submitBtn = contactForm.querySelector('.submit-btn');
                 const originalText = submitBtn.textContent;
                 submitBtn.textContent = 'Transmitting...';
-
+                
                 try {
                     const response = await fetch(contactForm.action, {
                         method: contactForm.method,
@@ -1374,7 +1430,7 @@
                             'Accept': 'application/json'
                         }
                     });
-
+                    
                     if (response.ok) {
                         formStatus.textContent = "Message sent successfully! I'll get back to you soon.";
                         formStatus.style.display = 'block';
@@ -1391,12 +1447,12 @@
                     formStatus.style.textShadow = "0 0 10px #ff3366";
                     formStatus.style.display = 'block';
                 }
-
+                
                 submitBtn.textContent = originalText;
-                setTimeout(() => {
-                    formStatus.style.display = 'none';
-                    formStatus.style.color = "var(--cyan)";
-                    formStatus.style.textShadow = "0 0 10px var(--cyan)";
+                setTimeout(() => { 
+                    formStatus.style.display = 'none'; 
+                    formStatus.style.color = "var(--cyan)"; 
+                    formStatus.style.textShadow = "0 0 10px var(--cyan)"; 
                 }, 5000);
             });
         }
@@ -1406,11 +1462,11 @@
             const cursor = document.getElementById('cursor');
             const canvasTail = document.getElementById('cursor-tail');
             const ctxTail = canvasTail.getContext('2d');
-
+            
             canvasTail.width = window.innerWidth;
             canvasTail.height = window.innerHeight;
 
-            let mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+            let mouse = { x: window.innerWidth/2, y: window.innerHeight/2 };
             let particles = [];
 
             window.addEventListener('resize', () => {
@@ -1421,11 +1477,9 @@
             document.addEventListener('mousemove', (e) => {
                 mouse.x = e.clientX;
                 mouse.y = e.clientY;
-
-                // Move main cursor
+                
                 gsap.to(cursor, { x: mouse.x, y: mouse.y, duration: 0.1 });
 
-                // Add particle
                 particles.push({
                     x: mouse.x,
                     y: mouse.y,
@@ -1434,27 +1488,24 @@
                 });
             });
 
-            // Hover effects on cursor (using event delegation for dynamic elements support)
-            document.addEventListener('mouseover', (e) => {
-                if (e.target.closest('a, button, input, textarea, .tilt-card')) {
+            document.querySelectorAll('a, button, input, textarea, .filter-btn').forEach(el => {
+                el.addEventListener('mouseenter', () => {
                     cursor.style.width = '20px';
                     cursor.style.height = '20px';
                     cursor.style.backgroundColor = 'transparent';
                     cursor.style.border = '2px solid var(--cyan)';
-                }
-            });
-            document.addEventListener('mouseout', (e) => {
-                if (e.target.closest('a, button, input, textarea, .tilt-card')) {
+                });
+                el.addEventListener('mouseleave', () => {
                     cursor.style.width = '8px';
                     cursor.style.height = '8px';
                     cursor.style.backgroundColor = 'var(--cyan)';
                     cursor.style.border = 'none';
-                }
+                });
             });
 
             function animateTail() {
                 ctxTail.clearRect(0, 0, canvasTail.width, canvasTail.height);
-
+                
                 for (let i = 0; i < particles.length; i++) {
                     let p = particles[i];
                     ctxTail.globalAlpha = p.alpha;
@@ -1462,10 +1513,10 @@
                     ctxTail.beginPath();
                     ctxTail.arc(p.x, p.y, p.size, 0, Math.PI * 2);
                     ctxTail.fill();
-
-                    p.alpha -= 0.02; // fade out
-                    p.size -= 0.05; // shrink
-
+                    
+                    p.alpha -= 0.02;
+                    p.size -= 0.05;
+                    
                     if (p.alpha <= 0 || p.size <= 0) {
                         particles.splice(i, 1);
                         i--;
@@ -1480,13 +1531,11 @@
         const titleEl = document.querySelector('.hero-title');
         const text = titleEl.innerText;
         titleEl.innerHTML = '';
-
-        // Split text manually
+        
         text.split('').forEach(char => {
             const span = document.createElement('span');
             span.className = 'char';
             span.innerHTML = char === ' ' ? '&nbsp;' : char;
-            // random initial positions
             gsap.set(span, {
                 x: (Math.random() - 0.5) * 400,
                 y: (Math.random() - 0.5) * 400,
@@ -1499,7 +1548,7 @@
         });
 
         const chars = document.querySelectorAll('.hero-title .char');
-
+        
         const tlIntro = gsap.timeline();
         tlIntro.to(chars, {
             duration: 1.5,
@@ -1509,7 +1558,8 @@
             stagger: 0.05,
             ease: "power4.out",
             delay: 0.2
-        }).fromTo('.cyber-btn', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1 }, "-=1");
+        }).fromTo('.cyber-btn', {opacity: 0, y: 30}, {opacity: 1, y: 0, duration: 1}, "-=1")
+          .fromTo('.hero-badge', {opacity: 0, y: -20}, {opacity: 1, y: 0, duration: 0.8}, "-=1.2");
 
         gsap.to('.floating-cta a', {
             x: 0,
@@ -1521,7 +1571,7 @@
         });
 
         // --- Typewriter Effect ---
-        const roles = ["CMS Developer", "Business Growth Strategist", "Digital Architect"];
+        const roles = ["CMS Developer", "Business Growth Strategist", "Digital Architect", "Shopify & Next.js Specialist"];
         let roleIdx = 0;
         let charIdx = 0;
         let isDeleting = false;
@@ -1529,7 +1579,7 @@
 
         function typeRole() {
             const currentRole = roles[roleIdx];
-
+            
             if (isDeleting) {
                 typewriterEl.textContent = currentRole.substring(0, charIdx - 1) + "_";
                 charIdx--;
@@ -1538,32 +1588,31 @@
                 charIdx++;
             }
 
-            let typeSpeed = isDeleting ? 30 : 100;
+            let typeSpeed = isDeleting ? 30 : 90;
 
             if (!isDeleting && charIdx === currentRole.length) {
-                typeSpeed = 2000; // wait before delete
+                typeSpeed = 2000;
                 isDeleting = true;
             } else if (isDeleting && charIdx === 0) {
                 isDeleting = false;
                 roleIdx = (roleIdx + 1) % roles.length;
-                typeSpeed = 500; // wait before type
+                typeSpeed = 400;
             }
 
             setTimeout(typeRole, typeSpeed);
         }
-        // Start typing after title animation
         setTimeout(typeRole, 2000);
 
         // --- Build Skills Grid ---
         const skillsData = [
-            { name: "CMS Dev", icon: "fa-solid fa-server" },
-            { name: "Biz Dev", icon: "fa-solid fa-chart-line" },
-            { name: "Web Design", icon: "fa-solid fa-palette" },
-            { name: "Client Mgmt", icon: "fa-solid fa-users" },
-            { name: "SEO", icon: "fa-solid fa-magnifying-glass" },
-            { name: "Strategy", icon: "fa-solid fa-chess-knight" }
+            { name: "CMS Architecture", icon: "fa-solid fa-server" },
+            { name: "Shopify Dev", icon: "fa-brands fa-shopify" },
+            { name: "Next.js / React", icon: "fa-brands fa-react" },
+            { name: "WordPress / Woo", icon: "fa-brands fa-wordpress" },
+            { name: "Business Strategy", icon: "fa-solid fa-chart-line" },
+            { name: "SEO & Growth", icon: "fa-solid fa-magnifying-glass" }
         ];
-
+        
         const hexGrid = document.querySelector('.hex-grid');
         skillsData.forEach(skill => {
             const wrapper = document.createElement('div');
@@ -1579,11 +1628,11 @@
         });
 
         // --- GSAP Scroll Animations ---
-
+        
         // Section transitions (light sweep)
         document.querySelectorAll('section').forEach(sec => {
             const line = sec.querySelector('.section-transition');
-            if (line) {
+            if(line) {
                 gsap.to(line, {
                     scaleX: 1,
                     scrollTrigger: {
@@ -1597,25 +1646,38 @@
         });
 
         // About - Bio typing on scroll
-        const bioText = "I engineer powerful digital ecosystems. Blending advanced CMS architectures with data-driven business strategies to create scalable, high-performance web experiences. Welcome to my neural network.";
+        const bioText = "I architect high-performance digital ecosystems and conversion-focused web applications. Blending deep CMS mastery (Shopify, WordPress, Next.js) with strategic business thinking to scale brands and capture market leadership.";
         const bioContainer = document.querySelector('.typing-bio');
         let bioTyped = false;
 
         ScrollTrigger.create({
             trigger: "#about",
-            start: "top 50%",
+            start: "top 60%",
             onEnter: () => {
-                if (!bioTyped) {
+                if(!bioTyped) {
                     bioTyped = true;
                     let i = 0;
                     function typeBio() {
                         if (i < bioText.length) {
                             bioContainer.innerHTML += bioText.charAt(i);
                             i++;
-                            setTimeout(typeBio, 20);
+                            setTimeout(typeBio, 15);
                         }
                     }
                     typeBio();
+
+                    // Stats counter
+                    document.querySelectorAll('.stat-num').forEach(numEl => {
+                        const target = parseInt(numEl.getAttribute('data-target'));
+                        gsap.to(numEl, {
+                            innerHTML: target,
+                            duration: 2,
+                            snap: { innerHTML: 1 },
+                            onUpdate: function() {
+                                numEl.innerHTML = Math.round(this.targets()[0].innerHTML) + "+";
+                            }
+                        });
+                    });
                 }
             }
         });
@@ -1628,16 +1690,16 @@
             ease: "back.out(1.7)",
             scrollTrigger: {
                 trigger: "#skills",
-                start: "top 60%"
+                start: "top 65%"
             }
         });
 
-        // Projects - Stagger cards (only visible ones initially)
-        gsap.from('.tilt-card-wrapper:not(.hidden-card)', {
-            y: 100,
+        // Projects - Stagger cards
+        gsap.from('.tilt-card-wrapper', {
+            y: 80,
             opacity: 0,
-            stagger: 0.2,
-            duration: 1,
+            stagger: 0.1,
+            duration: 0.8,
             scrollTrigger: {
                 trigger: "#projects",
                 start: "top 70%"
@@ -1646,7 +1708,7 @@
 
         // Contact Form
         gsap.from('.contact-wrapper', {
-            scale: 0.8,
+            scale: 0.9,
             opacity: 0,
             duration: 1,
             scrollTrigger: {
@@ -1655,24 +1717,63 @@
             }
         });
 
-        // Parallax Elements
-        gsap.utils.toArray('[data-speed]').forEach(el => {
-            gsap.to(el, {
-                y: () => (1 - parseFloat(el.getAttribute('data-speed'))) * ScrollTrigger.maxScroll(window),
-                ease: "none",
-                scrollTrigger: {
-                    trigger: "body",
-                    start: "top top",
-                    end: "bottom bottom",
-                    scrub: true
-                }
-            });
-        });
-
         // --- 3D Tilt Cards ---
         if (!isMobile) {
-            initializeTiltForCards(document.querySelectorAll('.tilt-card-wrapper'));
+            document.querySelectorAll('.tilt-card').forEach(card => {
+                card.addEventListener('mousemove', e => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const rotateX = ((y - centerY) / centerY) * -12; 
+                    const rotateY = ((x - centerX) / centerX) * 12;
+                    
+                    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = `rotateX(0) rotateY(0)`;
+                });
+            });
         }
+
+        // --- Projects Category Filter ---
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.tilt-card-wrapper');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                projectCards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    if (filter === 'all' || category.includes(filter)) {
+                        gsap.to(card, {
+                            scale: 1,
+                            opacity: 1,
+                            duration: 0.4,
+                            display: 'block',
+                            ease: 'power2.out'
+                        });
+                    } else {
+                        gsap.to(card, {
+                            scale: 0.8,
+                            opacity: 0,
+                            duration: 0.3,
+                            display: 'none',
+                            ease: 'power2.in'
+                        });
+                    }
+                });
+                ScrollTrigger.refresh();
+            });
+        });
 
         // --- Three.js Implementations ---
 
@@ -1682,14 +1783,14 @@
             const scene = new THREE.Scene();
             const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
             const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-
+            
             renderer.setSize(window.innerWidth, window.innerHeight);
             renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
             // Wireframe Globe
             const globeGeo = new THREE.IcosahedronGeometry(10, 2);
-            const globeMat = new THREE.MeshBasicMaterial({
-                color: 0x00f5ff,
+            const globeMat = new THREE.MeshBasicMaterial({ 
+                color: 0x00f5ff, 
                 wireframe: true,
                 transparent: true,
                 opacity: 0.15
@@ -1702,13 +1803,12 @@
             const particlesCount = 500;
             const posArray = new Float32Array(particlesCount * 3);
 
-            for (let i = 0; i < particlesCount * 3; i++) {
+            for(let i = 0; i < particlesCount * 3; i++) {
                 posArray[i] = (Math.random() - 0.5) * 50;
             }
 
             particlesGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-
-            // Cyan and Violet particles
+            
             const particleMat = new THREE.PointsMaterial({
                 size: 0.05,
                 color: 0x9d00ff,
@@ -1716,13 +1816,12 @@
                 opacity: 0.8,
                 blending: THREE.AdditiveBlending
             });
-
+            
             const particles = new THREE.Points(particlesGeo, particleMat);
             scene.add(particles);
 
             camera.position.z = 15;
 
-            // Mouse interaction
             let mouseX = 0;
             let mouseY = 0;
             document.addEventListener('mousemove', (e) => {
@@ -1734,13 +1833,12 @@
 
             const tick = () => {
                 const elapsedTime = clock.getElapsedTime();
-
+                
                 globe.rotation.y = elapsedTime * 0.1;
                 globe.rotation.x = elapsedTime * 0.05;
 
                 particles.rotation.y = elapsedTime * 0.05;
-
-                // Parallax based on mouse
+                
                 camera.position.x += (mouseX * 5 - camera.position.x) * 0.05;
                 camera.position.y += (-mouseY * 5 - camera.position.y) * 0.05;
                 camera.lookAt(scene.position);
@@ -1761,20 +1859,17 @@
         const initAboutCube = () => {
             const canvas = document.getElementById('about-cube-canvas');
             const scene = new THREE.Scene();
-            // Match aspect ratio of the hex container approx
             const camera = new THREE.PerspectiveCamera(75, 300 / 346, 0.1, 100);
             const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-
+            
             renderer.setSize(300, 346);
-
+            
             const geometry = new THREE.BoxGeometry(2, 2, 2);
-
-            // Edges geometry for glowing lines
+            
             const edges = new THREE.EdgesGeometry(geometry);
             const material = new THREE.LineBasicMaterial({ color: 0x9d00ff, linewidth: 2 });
             const cube = new THREE.LineSegments(edges, material);
-
-            // Add some inner faces with transparency
+            
             const faceMat = new THREE.MeshBasicMaterial({
                 color: 0x00f5ff,
                 transparent: true,
@@ -1782,7 +1877,7 @@
                 side: THREE.DoubleSide
             });
             const meshCube = new THREE.Mesh(geometry, faceMat);
-
+            
             const group = new THREE.Group();
             group.add(cube);
             group.add(meshCube);
@@ -1800,12 +1895,11 @@
         };
 
         // Initialize 3D
-        if (typeof THREE !== 'undefined' && !isMobile) {
+        if(typeof THREE !== 'undefined' && !isMobile) {
             initHero3D();
             initAboutCube();
         }
 
     </script>
 </body>
-
 </html>
