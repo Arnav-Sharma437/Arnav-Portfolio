@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arnav Sharma | CMS Developer & Business Growth Strategist</title>
+    <link rel="icon" type="image/png" href="logo.png">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- FontAwesome -->
@@ -88,7 +89,7 @@
         nav {
             position: fixed;
             top: 0; width: 100%;
-            padding: 1.1rem 5%;
+            padding: 0.65rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -100,18 +101,21 @@
         }
 
         .logo {
-            font-size: 1.6rem;
-            font-weight: 900;
-            color: var(--text-main);
             text-decoration: none;
-            font-family: 'Orbitron', sans-serif;
-            text-shadow: 0 0 12px var(--cyan);
-            letter-spacing: 2px;
             display: flex;
             align-items: center;
-            gap: 6px;
         }
-        .logo span { color: var(--cyan); }
+        .nav-logo-img {
+            height: 54px;
+            width: auto;
+            display: block;
+            filter: drop-shadow(0 0 10px rgba(0, 245, 255, 0.35));
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+        .logo:hover .nav-logo-img {
+            transform: scale(1.06);
+            filter: drop-shadow(0 0 18px rgba(0, 245, 255, 0.75));
+        }
 
         .nav-links {
             display: flex;
@@ -1274,6 +1278,7 @@
             #cursor, #cursor-tail { display: none !important; }
 
             .hamburger { display: block; }
+            .nav-logo-img { height: 42px; }
             .nav-links {
                 display: none;
                 position: absolute;
@@ -1341,7 +1346,9 @@
 
     <!-- HEADER / NAVIGATION -->
     <nav>
-        <a href="#" class="logo">ARNAV<span>.DEV</span></a>
+        <a href="#" class="logo">
+            <img src="logo.png" alt="ARNAV.DEV Logo" class="nav-logo-img">
+        </a>
         <div class="nav-links">
             <a href="#about">About</a>
             <a href="#services">Services</a>
