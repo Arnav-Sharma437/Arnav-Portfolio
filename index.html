@@ -1885,49 +1885,36 @@
                 </div>
             </div>
 
-            <!-- 18. Indus Finance Business Card -->
-            <div class="tilt-card-wrapper" data-category="branding">
-                <div class="tilt-card">
-                    <div class="card-bg" style="background: linear-gradient(135deg, #1b1315 0%, #2b2114 60%, #a8832c 100%); display:flex; align-items:flex-start; justify-content:center; overflow:hidden;">
-                        <canvas id="indus-card-thumb" style="width:100%; height:100%; object-fit:cover; display:block;"></canvas>
+            <!-- 18. Indus Finance Business Card (Direct Open Showcase) -->
+            <div class="tilt-card-wrapper" data-category="branding" style="grid-column: 1 / -1;">
+                <div style="background: rgba(14, 14, 32, 0.88); border: 1px solid rgba(0, 245, 255, 0.28); border-radius: 16px; padding: 2rem; box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55), inset 0 0 24px rgba(0, 245, 255, 0.05); backdrop-filter: blur(14px);">
+                    <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:1rem; margin-bottom:1.5rem;">
+                        <div>
+                            <div style="display:flex; gap:8px; margin-bottom:0.6rem; flex-wrap:wrap;">
+                                <span class="badge-type">Brand &amp; Print Design</span>
+                                <span class="badge-status live">Live</span>
+                            </div>
+                            <h3 class="card-title" style="margin-bottom:0.25rem;">Indus Finance — Business Card (Front &amp; Back)</h3>
+                            <div class="card-tech" style="margin-bottom:0;"><i class="fas fa-id-card"></i> Print Design • QR vCard • Branding • Vikas Tejasvi (Australia)</div>
+                        </div>
+                        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                            <a href="indus-card-2.pdf" target="_blank" class="card-btn">Front PDF <i class="fas fa-arrow-up-right-from-square"></i></a>
+                            <a href="indus-card-1.pdf" target="_blank" class="card-btn">Back PDF <i class="fas fa-arrow-up-right-from-square"></i></a>
+                        </div>
                     </div>
-                    <div class="card-header-badge">
-                        <span class="badge-type">Brand &amp; Print Design</span>
-                        <span class="badge-status live">Live</span>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Indus Finance — Business Card</h3>
-                        <div class="card-tech"><i class="fas fa-id-card"></i> Print Design • QR vCard • Branding</div>
-                        <p class="card-desc">Executive double-sided luxury gold &amp; obsidian business card design for Vikas Tejasvi (Principal Finance Broker, Australia) with scannable QR vCard.</p>
-                        <button type="button" class="card-btn" onclick="openCardModal()" style="cursor:pointer;">View Card Design <i class="fas fa-expand"></i></button>
+                    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:1.5rem;">
+                        <div style="background:#080814; border:1px solid rgba(0,245,255,0.22); border-radius:12px; padding:0.75rem; overflow:hidden;">
+                            <canvas id="indus-front-canvas" style="width:100%; height:auto; border-radius:8px; display:block;"></canvas>
+                        </div>
+                        <div style="background:#080814; border:1px solid rgba(0,245,255,0.22); border-radius:12px; padding:0.75rem; overflow:hidden;">
+                            <canvas id="indus-back-canvas" style="width:100%; height:auto; border-radius:8px; display:block;"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
 
         </div>
     </section>
-
-    <!-- BUSINESS CARD SHOWCASE MODAL -->
-    <div id="cardModal" style="display:none; position:fixed; inset:0; z-index:99999; background:rgba(5,5,16,0.92); backdrop-filter:blur(14px); align-items:center; justify-content:center; padding:1.5rem; overflow-y:auto;" onclick="if(event.target===this) closeCardModal()">
-        <div style="position:relative; width:100%; max-width:980px; background:rgba(14,14,32,0.96); border:1px solid var(--cyan); border-radius:16px; padding:2rem; box-shadow:0 0 50px rgba(0,245,255,0.25);">
-            <button type="button" onclick="closeCardModal()" style="position:absolute; top:14px; right:18px; background:transparent; border:none; color:#fff; font-size:1.6rem; cursor:pointer;" aria-label="Close modal">&times;</button>
-            <div style="text-align:center; margin-bottom:1.5rem;">
-                <span class="section-tag" style="margin-bottom:0.3rem;">// BRAND &amp; PRINT DESIGN</span>
-                <h3 style="font-family:'Orbitron',sans-serif; font-size:1.5rem; color:#fff;">Indus Finance — Business Card (Front &amp; Back)</h3>
-                <p style="color:var(--text-muted); font-size:0.95rem; margin-top:0.3rem;">Designed for Vikas Tejasvi, Principal Finance Broker (Australia) • Scannable QR vCard</p>
-            </div>
-            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:1.5rem;">
-                <div style="background:#0a0a18; border:1px solid rgba(0,245,255,0.2); border-radius:12px; padding:0.8rem; text-align:center;">
-                    <canvas id="indus-modal-front" style="width:100%; height:auto; border-radius:8px; display:block;"></canvas>
-                    <a href="indus-card-2.pdf" target="_blank" class="card-btn" style="margin-top:0.8rem; display:inline-flex;">Open Front PDF <i class="fas fa-arrow-up-right-from-square"></i></a>
-                </div>
-                <div style="background:#0a0a18; border:1px solid rgba(0,245,255,0.2); border-radius:12px; padding:0.8rem; text-align:center;">
-                    <canvas id="indus-modal-back" style="width:100%; height:auto; border-radius:8px; display:block;"></canvas>
-                    <a href="indus-card-1.pdf" target="_blank" class="card-btn" style="margin-top:0.8rem; display:inline-flex;">Open Back PDF <i class="fas fa-arrow-up-right-from-square"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- CONTACT SECTION -->
     <section id="contact">
@@ -2493,30 +2480,10 @@
             }
         }
 
-        // Render card thumbnail on load
+        // Render both business card sides directly on the page
         window.addEventListener('load', () => {
-            renderPdfToCanvas('indus-card-2.pdf', 'indus-card-thumb', 0.65);
-        });
-
-        let modalRendered = false;
-        function openCardModal() {
-            const modal = document.getElementById('cardModal');
-            if (!modal) return;
-            modal.style.display = 'flex';
-            if (!modalRendered) {
-                modalRendered = true;
-                renderPdfToCanvas('indus-card-2.pdf', 'indus-modal-front', 0.9);
-                renderPdfToCanvas('indus-card-1.pdf', 'indus-modal-back', 0.9);
-            }
-        }
-
-        function closeCardModal() {
-            const modal = document.getElementById('cardModal');
-            if (modal) modal.style.display = 'none';
-        }
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeCardModal();
+            renderPdfToCanvas('indus-card-2.pdf', 'indus-front-canvas', 0.9);
+            renderPdfToCanvas('indus-card-1.pdf', 'indus-back-canvas', 0.9);
         });
 
     </script>
